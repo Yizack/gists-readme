@@ -7,26 +7,26 @@ Generate your link: https://gists-readme.yizack.com/
 ## Usage/Examples 1
 User Yizack dislpay max, Dark Theme.
 ```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gists-readme.yizack.com/api?user=yizack&theme=dark)
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
 ```
 ### Demo
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gists-readme.yizack.com/api?user=yizack&theme=dark)
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
 
 ## Usage/Examples 2
 User Yizack display 2 and no Dark Theme.
 ```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gists-readme.yizack.com/api?user=yizack&n=2)
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
 ```
 ### Demo
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gists-readme.yizack.com/api?user=yizack&n=2)
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
 
 ## Usage/Examples 3
 User Cy4Bot, display 20 and no Dark Theme.
 ```
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)](https://gist.github.com/Cy4Bot)
 ```
 ### Demo
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)](https://gist.github.com/Cy4Bot)
 
 
 
