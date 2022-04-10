@@ -104,7 +104,3 @@ function myPath(file){
 }
 
 module.exports = app;
-
-app.listen(1515, () => {
-  console.log(`Example app listening on port 1515`);
-})
