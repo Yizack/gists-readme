@@ -4,7 +4,7 @@ Display a card with your Gists on your GitHub README.md
 
 ## Live Demo Card
 
-Generate your link: https://gists-readme.yizack.com/
+Generate your card: https://gists-readme.yizack.com/
 
 ## Usage Example 1
 
@@ -42,7 +42,7 @@ title: `Cy4Bot Gists`
 
 ### Demo Card
 
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20)](https://gist.github.com/Cy4Bot)
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
 
 
 
