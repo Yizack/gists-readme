@@ -1,30 +1,30 @@
-<svg width="495" height="{{ height }}" viewBox="0 0 495 {{ height }}" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="{{ width }}" height="{{ height }}" viewBox="0 0 {{ width }} {{ height }}" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     .header {
       font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-      fill: #58A6FF;
+      fill: {{ theme.primary_color }};
       animation: fadeInAnimation 0.8s ease-in-out forwards;
     }
     @supports(-moz-appearance: auto) {
       /* Selector detects Firefox */
       .header { font-size: 15.5px; }
     }
-    .gist-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #c9d1d9 }
+    .gist-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: {{ theme.text_color }} }
   </style>
-  <rect xmlns="http://www.w3.org/2000/svg" data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" width="494" fill="#0D1117" stroke-opacity="0"/>
-  <g data-testid="card-title" transform="translate(25, 35)">
+  <rect xmlns="http://www.w3.org/2000/svg" data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" width="494" fill="{{ theme.bg_color }}" stroke-opacity="0"/>
+  <g data-testid="card-title" transform="translate(25, 40)">
     <g transform="translate(0, 0)">
-      <text x="0" y="0" class="header" data-testid="header">My Gists</text>
+      <text x="0" y="0" class="header" data-testid="header">{{ title }}</text>
     </g>
   </g>
-  <g data-testid="main-card-body" transform="translate(0, 30)">
+  <g data-testid="main-card-body" transform="translate(0, 35)">
     <svg data-testid="lang-items" x="25">
       <g transform="translate(0, 25)">
         <g transform="translate(0, 0)">
           {{#each gists}}
           <g transform="translate({{ this.x }}, {{ this.y }})">
             <g>
-              <circle cx="5" cy="6" r="5" fill="{{ this.color }}" />
+              <circle cx="5" cy="6" r="5" fill="{{ this.gistColor }}" />
               <text data-testid="gist-name" x="15" y="10" class='gist-name'>{{ this.file }}</text>
             </g>
           </g>

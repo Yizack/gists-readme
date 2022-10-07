@@ -1,0 +1,12 @@
+{
+    "default": {
+        "primary_color": "#0969da",
+        "text_color": "#24292f",
+        "bg_color": "#fffefe"
+    },
+    "dark": {
+        "primary_color": "#58a6ff",
+        "text_color": "#c9d1d9",
+        "bg_color": "#0d1117"
+    }
+}

@@ -1,106 +1,103 @@
-const app = require('express')();
-const hbs = require('hbs');
-const axios = require('axios').default;
-const path = require("path");
-const fs = require('fs');
-const env = require('dotenv').config({ path: myPath(".env") });
+import express from "express";
+import hbs from "hbs";
+import axios from "axios";
+import * as dotenv from "dotenv";
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { createRequire } from "module";
 
-var languages = "";
+dotenv.config();
+const __filename = fileURLToPath(import.meta.url); // Get the current directory
+const __dirname = path.dirname(__filename) // path to current directory
+const require = createRequire(import.meta.url);
 
-hbs.registerPartials(myPath("themes/partials"), function (err) {});
-app.set('view engine', 'hbs');
-app.set("views", myPath("themes"));
+const languages = require("../resources/language_colors.json");
+const themes = require("../resources/themes.json");
 
-app.get('/api/', async (req, res) => {
-  const { user } = req.query;
-  const { n } = req.query;
-  const { theme } = req.query;
-  const limit = isNaN(n) || typeof n === "undefined" || n === "";
+// Card default constants
+const X_LEFT = 0
+const X_RIGHT = 200
+const Y_POSITION = 25;
+const MAX_GISTS = 30;
+const DEFAULT_THEME = "default";
+const DEFAULT_TITLE = "My Gists";
+const WIDTH = 495;
 
-  console.log(n);
+const getLanguageColor = (name) => {
+  return languages.hasOwnProperty(name) ? languages[name].color : "#ededed";
+};
 
-  const token = process.env.token;
-  const options = {
-    headers: {
-      Authorization:  `token ${token}` 
-    }
-  };
+const getTheme = (name) => {
+  return themes.hasOwnProperty(name) ? themes[name] : themes["default"];
+};
 
-  languages = JSON.parse(fs.readFileSync(myPath('resources/language_colors.json'), 'utf8'));
+const app = express(); // create express app
+hbs.registerPartials(path.join(__dirname, "../templates/partials"), (err) => {}); // register partials
+app.set("view engine", "hbs"); // set up hbs for templating
+app.set("views", path.join(__dirname, "../templates")); // set up views directory
+app.get("/api/", async (req, res) => {
+  const { // get query params
+    user, // github username
+    theme = DEFAULT_THEME, // theme name
+    n = MAX_GISTS, // number of gists to show
+    title = DEFAULT_TITLE // title of the card
+  } = req.query;
 
-    var req = await axios.get(`https://api.github.com/users/${user}/gists`, options).then( async (response) => {
-    var gists = [];
-    var x = 0;
-    var y = 0;
-    var i = 0;
-    var nextLine = false;
+  const { token } = process.env; // github token from env
+  
+  await axios.get(`https://api.github.com/users/${user}/gists`, { headers: { Authorization:  `token ${token}` } }).then(async (response) => {
+    let gists = []; // array of gists
+    let x = X_LEFT; // x position of gist
+    let y = 0; // y position of gist
+    let i = 0; // counter
+    let newLine = false; // new line flag
     
-    await response.data.forEach(function(d) {
-      if(limit || i < n){
-        var filename = Object.keys(d.files)[0];
-        var language = d.files[filename].language;
-        var color = getColor(language);
-        gists.push({
-          "file": filename,
-          "language": language,
-          "color": color,
-          "y" : y,
-          "x" : x
-        });
+    await response.data.some((d) => {
+      let filename = Object.keys(d.files)[0]; // gist filename
+      let language = d.files[filename].language; // gist language
+      let gistColor = getLanguageColor(language); // gist language color
+      
+      gists.push({
+        "file": filename,
+        "language": language,
+        "gistColor": gistColor,
+        "y" : y,
+        "x" : x
+      });
 
-        if(x == 200 && !nextLine){
-          x = 0;
-        }
-        else if (x ==0 && !nextLine) {
-          x = 200;
-          nextLine = true;
-        }
-
-        if(nextLine){
-          nextLine = false;
-          y = y - 25;
-        }
-        y = y + 25;
-        i++;
+      
+      if (x == X_LEFT && !newLine) {
+        x = X_RIGHT; // x next position: right
+        newLine = true;
       }
-    });
+      else if (x == X_RIGHT && !newLine) {
+        x = X_LEFT; // x next position: left
+      }
 
-    var height = y + 100;
-
-    var parameters = {
-      "gists": gists,
-      "height": height
-    }
-
-    res.setHeader("Content-Type", "image/svg+xml");
-
-    try {
-      if (fs.existsSync(myPath(`themes/${theme}.hbs`))) {
-        res.render(theme, parameters);
+      if (newLine) {
+        newLine = false; // next position same line
       }
       else {
-        throw error;
+        newLine = false;
+        y = y + Y_POSITION; // y next position: down
       }
-    }
-    catch(e){
-      res.render('default', parameters);
-    }
+      i++;
+
+      return i == n; // stop iterating after n gists
+    });
+
+    let height = y + 100; // height of the card
+
+    res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
+    res.render("default", { // render the card
+      "theme": getTheme(theme),
+      "title": title || DEFAULT_TITLE,
+      "gists": gists,
+      "height": height,
+      "width": WIDTH
+    });
 
   }); 
 });
 
-
-function getColor(name){
-  try {
-    return languages[name].color;
-  }
-  catch(e){
-    return "#ededed";
-  }
-}
-
-function myPath(file){
-  return path.join(__dirname, "..", file);
-}
-
-module.exports = app;
+export default app;
