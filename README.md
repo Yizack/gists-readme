@@ -34,7 +34,6 @@ n: `2`
 
 user: `Cy4Bot`\
 n: `20`\
-theme: `dark`\
 title: `Cy4Bot Gists`
 
 ```
