@@ -16,7 +16,6 @@ export const getCard = (query, response) => {
   let i = 0; // counter
   let newLine = false; // new line flag
 
-  response.data.length = n; // limit number of gists to display
   response.data.some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
