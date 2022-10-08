@@ -1,3 +1,6 @@
+[![Vercel build](https://github.com/Yizack/gists-readme/actions/workflows/production.yml/badge.svg)](https://github.com/Yizack/gists-readme/actions/workflows/production.yml)
+[![codecov](https://codecov.io/gh/Yizack/gists-readme/branch/main/graph/badge.svg?token=HR7SFR4C5N)](https://codecov.io/gh/Yizack/gists-readme)
+
 # GitHub Gists Readme (gists-readme)
 
 Display a card with your Gists on your GitHub README.md
