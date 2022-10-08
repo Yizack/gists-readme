@@ -1,3 +1,6 @@
 node_modules
 *.lock
 *.env
+.vercel
+coverage
+codecov.exe
