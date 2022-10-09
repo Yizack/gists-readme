@@ -1,22 +1,29 @@
+/** @module card */
 import { CONSTANTS } from "./constants.js";
 import { getLanguageColor, getTheme } from "../src/functions.js";
 
 const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, WIDTH } = CONSTANTS; // get constants
 
-export const getCard = (query, response) => {
-  const { 
-    theme = DEFAULT_THEME, // theme name
-    n = MAX_GISTS, // number of gists to display
-    title = DEFAULT_TITLE // title of the card
-  } = query; // query params
-
+/**
+ * Returns the card object
+ * @function
+ * @param {Object} query Query object
+ * @param {string} query.theme Theme name
+ * @param {number} query.n Number of gists to display
+ * @param {string} query.title Title of the card
+ * @param {Object} gists_response Gists response object 
+ * @param {Object[]} gists_response.data Gists data
+ * @returns {Object} Card object
+ */
+export const getCard = (query, gists_response) => {
+  const { theme = DEFAULT_THEME, n = MAX_GISTS, title = DEFAULT_TITLE } = query; // get query parameters
   let gists = []; // array of gists
   let x = X_LEFT; // x position of gist
   let y = 0; // y position of gist
   let i = 0; // counter
   let newLine = false; // new line flag
 
-  response.data.some((gist) => {
+  gists_response.data.some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
     let gistColor = getLanguageColor(language); // gist language color
