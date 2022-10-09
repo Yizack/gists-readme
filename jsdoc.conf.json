@@ -1,0 +1,38 @@
+{
+  "plugins": ["plugins/markdown"],
+  "recurseDepth": 10,
+  "source": {
+      "includePattern": ".+\\.js(doc|x)?$",
+      "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "sourceType": "module",
+  "tags": {
+      "allowUnknownTags": true,
+      "dictionaries": ["jsdoc","closure"]
+  },
+  "opts": {
+    "template": "node_modules/better-docs",
+    "readme": "README.md",
+    "destination": "docs/"
+  },
+  "templates": {
+      "cleverLinks": false,
+      "monospaceLinks": false,
+      "search": true,
+      "better-docs": {
+            "name": "Yizack/gists-readme",
+            "title": "Yizack/gists-readme Documentation",
+            "hideGenerator": false,
+            "navLinks": [
+                {
+                    "label": "Github",
+                    "href": "https://github.com/Yizack/gists-readme"
+                },
+                {
+                    "label": "Generate your card",
+                    "href": "https://gists-readme.yizack.com/"
+                }
+        ]
+    }
+  }
+}
