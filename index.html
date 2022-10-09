@@ -19,37 +19,91 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+      body {
+        background-color: #0d1117;
+      }
+      a {
+        color: #58a6ff!important;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .btn-primary {
+        background-color: #238636;
+        border-color: #238636;
+      }
+      .btn-primary:hover {
+        background-color: #2ea043;
+        border-color: #2ea043;
+      }
+      .text-secondary {
+        color: #8b949e;
+      }
+      .bg-dark {
+        background-color: #161b22;
+      }
+      .border, .border-bottom {
+        border-color: #30363d!important;
+      }
+      .form-control {
+        color: #fff!important;
+        background-color: #010409;
+      }
+      .form-control:focus {
+        background-color: #0d1117;
+        border-color: #58a6ff!important;
+      }
+      .text-white {
+        color: #c9d1d9!important;
+      }
+    </style>
   </head>
-  <body style="background-color: #0d1117!important;">
+  <body>
     <div class="container m-auto">
       <div class="d-flex align-items-center justify-content-center vh-100">
-        <form class="border rounded bg-white p-4 p-sm-5" action="/api">
-          <h2><i class="bi bi-github"></i> Display your Gists on your GitHub README.md</h2>
-          <div class="mb-3 mt-4">
-            <label for="username"><span class="text-danger">*</span><strong>GitHub Username</strong></label>
-            <input type="text" class="form-control" id="username" placeholder="Enter your GitHub username" name="user" required>
+        <div class="text-white col-lg-8 border rounded">
+          <form class="border-bottom" action="/api">
+            <div class="px-4 py-3 border-bottom">
+              <h5 class="m-0"><i class="bi bi-window text-secondary"></i> <a href="https://github.com/Yizack">Yizack</a>/<a href="https://github.com/Yizack/gists-readme">gists-readme</a></h5>
+            </div>
+            <div class="p-4">
+              <h5 class="mb-4">Display your Gists on your GitHub README.md</h5>
+              <div class="mb-3">
+                <label for="username" class="mb-2 ms-1"><i class="bi bi-github"></i> GitHub Username <span class="text-danger">*</span></label>
+                <input type="text" class="form-control rounded-pill border" id="username" placeholder="Enter your GitHub username" name="user" required>
+              </div>
+              <div class="row">
+                <div class="col-xl-6">
+                  <div class="mb-3">
+                    <label for="title" class="mb-2 ms-1">Title <span class="text-secondary"><small>(optional)</small></span></label>
+                    <input type="text" class="form-control rounded-pill border" id="title" placeholder="My Gists" name="title">
+                  </div>
+                </div>
+                <div class="col-xl-6">
+                  <div class="mb-4">
+                    <label for="gists" class="mb-2 ms-1">Number of Gists to display <span class="text-secondary"><small>(max: 30, optional)</small></span></label>
+                    <input type="number" class="form-control rounded-pill border" id="number" placeholder="30" name="n" min="0" max="30">
+                  </div>
+                </div>
+              </div>
+              <div class="form-check mb-3">
+                <label class="form-check-label mb-2 ms-1">
+                  <input class="form-check-input" type="checkbox" value="dark" id="theme" name="theme">Dark Theme <span class="text-secondary"><small>(optional)</small></span>
+                </label>
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary rounded-pill"><strong>Generate Card</strong></button>
+              </div>
+            </div>
+          </form>
+          <div class="px-4 py-3">
+            <p class="m-0"><small><i class="bi bi-github"></i> <a href="https://github.com/Yizack/gists-readme" target="blank" class="me-3">Repository</a> <a href="https://gists-readme.yizack.com/docs/" target="blank">Docs</a></small></p>
+            <p class="m-0"><small>Inspired by <i class="bi bi-github"></i> <a href="https://github.com/anuraghazra/github-readme-stats" target="blank">anuraghazra/github-readme-stats</a>.</small></p>
+            <p class="m-0"><small>Made by <a href="https://github.com/Yizack" target="blank">Yizack Rangel</a>.</small></p>
           </div>
-          <div class="mb-3">
-            <label for="gists"><strong>Number of Gists to display</strong> (max: 30, optional)</label>
-            <input type="number" class="form-control" id="number" placeholder="30" name="n" min="0" max="30">
-          </div>
-          <div class="mb-3">
-            <label for="title"><strong>Title</strong> (optional)</label>
-            <input type="text" class="form-control" id="title" placeholder="My Gists" name="title">
-          </div>
-          <div class="form-check mb-3">
-            <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" value="dark" id="theme" name="theme"><strong>Dark Theme</strong> (optional)
-            </label>
-          </div>
-          <div class="d-grid">
-            <button type="submit" class="btn btn-primary">Generate Card</button>
-          </div>
-          <div class="mt-2">
-            <p class="m-0"><small>Inspired by <i class="bi bi-github"></i> <a href="https://github.com/anuraghazra/github-readme-stats" target="blank">anuraghazra/github-readme-stats</a> on GitHub.</small></p>
-            <p class="m-0"><small>Made by <a href="https://github.com/Yizack" target="blank">Yizack Rangel</a>. See <i class="bi bi-github"></i> <a href="https://github.com/Yizack/gists-readme" target="blank">Yizack/gists-readme</a> on GitHub.</small></p>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </body>
