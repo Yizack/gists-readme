@@ -64,7 +64,7 @@ export const getCard = (query, gists_response) => {
     "gists": gists,
     "height": height,
     "width": WIDTH
-  }
+  };
 
   return card;
 };

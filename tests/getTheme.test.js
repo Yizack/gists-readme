@@ -11,7 +11,7 @@ const themes = {
     "text_color": "#c9d1d9",
     "bg_color": "#0d1117"
   }
-}
+};
 
 describe("getTheme", () => {
   test("default - should return default theme", () => {

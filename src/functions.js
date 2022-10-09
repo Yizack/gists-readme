@@ -12,7 +12,7 @@ const themes = require("../resources/themes.json");
  * @returns {string} Hex color code
  */
 export const getLanguageColor = (name) => { // export language color
-  return languages.hasOwnProperty(name) ? languages[name].color : "#ededed";
+  return Object.prototype.hasOwnProperty.call(languages, name) ? languages[name].color : "#ededed";
 };
 
 /**
@@ -22,5 +22,5 @@ export const getLanguageColor = (name) => { // export language color
  * @returns {Object} Theme object
  */
 export const getTheme = (name) => { // export theme
-  return themes.hasOwnProperty(name) ? themes[name] : themes["default"];
+  return Object.prototype.hasOwnProperty.call(themes, name) ? themes[name] : themes["default"];
 };
