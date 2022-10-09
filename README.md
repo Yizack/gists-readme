@@ -8,7 +8,7 @@ Display a card with your Gists on your GitHub README.md
 
 ## Live Demo Card
 
-Generate your card: https://gists-readme.yizack.com/
+Generate your card: [https://gists-readme.yizack.com/](https://gists-readme.yizack.com/)
 
 ## Usage Example 1
 
