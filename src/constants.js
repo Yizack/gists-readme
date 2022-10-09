@@ -11,7 +11,7 @@
  * @property {string} DEFAULT_TITLE Default title
  * @property {number} WIDTH Width of the card
  */
-export const CONSTANTS =  {
+export const CONSTANTS = {
   X_LEFT: 0,
   X_RIGHT: 200,
   Y_DOWN: 25,
