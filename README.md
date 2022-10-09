@@ -1,4 +1,4 @@
-[![Vercel build](https://github.com/Yizack/gists-readme/actions/workflows/production.yml/badge.svg)](https://github.com/Yizack/gists-readme/actions/workflows/production.yml)
+[![Vercel build](https://img.shields.io/github/deployments/yizack/gists-readme/Production?label=Build&logo=vercel)](https://gists-readme.yizack.com/)
 [![Tests](https://github.com/Yizack/gists-readme/actions/workflows/tests.yml/badge.svg)](https://github.com/Yizack/gists-readme/actions/workflows/tests.yml)
 [![codecov](https://codecov.io/gh/Yizack/gists-readme/branch/main/graph/badge.svg?token=HR7SFR4C5N)](https://codecov.io/gh/Yizack/gists-readme)
 
