@@ -1,8 +1,11 @@
 {
     "version": 2,
     "functions": {
-      "api/*.js": {
+      "api/index.js": {
         "memory": 512
+      },
+      "api/pin.js": {
+        "memory": 1024
       }
     },
     "redirects": [
