@@ -1,8 +1,14 @@
 {
     "version": 2,
     "functions": {
-      "api/index.js": {
-        "includeFiles": "**"
+      "api/*.js": {
+        "memory": 512
       }
-    }
+    },
+    "redirects": [
+      {
+        "source": "/docs",
+        "destination": "/docs/"
+      }
+    ]
   }

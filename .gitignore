@@ -7,3 +7,4 @@ codecov.exe
 .eslintrc.json
 .eslintignore
 docs
+.vercelignore
