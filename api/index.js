@@ -17,11 +17,6 @@ import { getGists } from "../src/gists_list.js";
 const __filename = fileURLToPath(import.meta.url); // Get the current directory
 const __dirname = path.dirname(__filename); // path to current directory
 
-/** Initializes express
- * @constant
- * @type {Object}
- * @namespace app
- */
 const app = express(); // create express app
 
 hbs.registerPartials(path.join(__dirname, "../templates/partials"), () => {}); // register partials
@@ -31,7 +26,7 @@ app.set("views", path.join(__dirname, "../templates")); // set up views director
 
 /**
  * This endpoint displays the card on the browser
- * @memberof module:api~app
+ * @memberof module:api
  * @name /api
  * @function
  * @async

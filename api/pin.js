@@ -1,11 +1,11 @@
 /**
- * @module api/pin
+ * @memberof api
  * @requires express
  * @requires hbs
  * @requires path
  * @requires url
- * @requires card
- * @requires gists_list
+ * @requires pin
+ * @requires gist_single
  */
 import express from "express";
 import hbs from "hbs";
@@ -17,11 +17,6 @@ import { getSingleGist } from "../src/gist_single.js";
 const __filename = fileURLToPath(import.meta.url); // Get the current directory
 const __dirname = path.dirname(__filename); // path to current directory
 
-/** Initializes express
- * @constant
- * @type {Object}
- * @namespace app
- */
 const app = express(); // create express app
 
 hbs.registerPartials(path.join(__dirname, "../templates/partials"), () => {}); // register partials
@@ -31,8 +26,8 @@ app.set("views", path.join(__dirname, "../templates")); // set up views director
 
 /**
  * This endpoint displays the card on the browser
- * @memberof module:api/pin~app
- * @name /api
+ * @memberof module:api
+ * @name /api/pin
  * @function
  * @async
  * @param {Object} req Request object
