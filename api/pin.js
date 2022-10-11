@@ -1,5 +1,5 @@
 /**
- * @module api
+ * @module api/pin
  * @requires express
  * @requires hbs
  * @requires path
@@ -11,8 +11,8 @@ import express from "express";
 import hbs from "hbs";
 import path from "path";
 import { fileURLToPath } from "url";
-import { getCard } from "../src/card.js";
-import { getGists } from "../src/gists_list.js";
+import { getPin } from "../src/pin.js";
+import { getSingleGist } from "../src/gist_single.js";
 
 const __filename = fileURLToPath(import.meta.url); // Get the current directory
 const __dirname = path.dirname(__filename); // path to current directory
@@ -31,22 +31,22 @@ app.set("views", path.join(__dirname, "../templates")); // set up views director
 
 /**
  * This endpoint displays the card on the browser
- * @memberof module:api~app
+ * @memberof module:api/pin~app
  * @name /api
  * @function
  * @async
  * @param {Object} req Request object
  * @param {Object} req.query Query object
  * @param {string} req.query.user Github username
+ * @param {string} req.query.id Gist id
  * @param {string} req.query.theme Theme name
- * @param {number} req.query.n Number of gists to display
- * @param {string} req.query.title Title of the card
+ * @param {boolean} req.query.owner Show gist owner
  * @param {Object} res Response object
  */
-app.get("/api", async (req, res) => {
-  let card = getCard(req.query, await getGists(req.query.user)); // get card
+app.get("/api/pin", async (req, res) => {
+  let pin = getPin(req.query, await getSingleGist(req.query)); // get card
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
-  res.render("card", card); // render gists_list template
+  res.render("pin", pin); // render gists_list template
 });
 
 export default app;

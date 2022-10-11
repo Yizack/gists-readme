@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { getGists } from "../src/gists.js";
+import { getGists } from "../src/gists_list.js";
 import axios from "axios";
 
 jest.mock("axios");

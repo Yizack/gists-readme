@@ -62,13 +62,11 @@ export const getCard = (query, gists_response) => {
 
   let height = y + 100; // height of the card
 
-  const card = { // card
+  return { // card
     "theme": getTheme(theme),
     "title": title || DEFAULT_TITLE,
     "gists": gists,
     "height": height,
     "width": WIDTH
   };
-
-  return card;
 };

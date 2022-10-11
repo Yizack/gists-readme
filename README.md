@@ -6,51 +6,22 @@
 
 Display a card with your Gists on your GitHub README.md
 
-## Live Demo Card
+- [Gists List Card](#gists-list-card)
+  - [Example 1](#card-example-1)
+  - [Example 2](#card-example-2)
+  - [Example 3](#card-example-3)
+- [Gist Pin](#gist-pin)
+  - [Example 1](#pin-example-1)
+  - [Example 2](#pin-example-2)
 
-Generate your card: [https://gists-readme.yizack.com/](https://gists-readme.yizack.com/)
-
-## Usage Example 1
-
-user: `yizack`\
-theme: `dark`
-
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
-```
-### Demo Card
-
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
-
-## Usage Example 2
-
-user: `yizack`\
-n: `2`
-
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
-```
-### Demo Card
-
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
-
-## Usage Example 3
-
-user: `Cy4Bot`\
-n: `20`\
-title: `Cy4Bot Gists`
-
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
-```
-
-### Demo Card
-
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
+Generate your card here: [https://gists-readme.yizack.com](https://gists-readme.yizack.com)
 
 
+## Gists List Card
 
-## Parameters
+Display a list of your gists
+
+### Parameters
 
 | Parameter | Description                   | Optional | Default value |
 | --------- | ----------------------------- | -------- | ------------- |
@@ -58,6 +29,96 @@ title: `Cy4Bot Gists`
 | `theme`   | Set the theme of the card.    | Yes      | `default`     |
 | `n`       | Number of Gists to display.   | Yes      | `30`          |
 | `title`   | Set the title of the card.    | Yes      | `My Gists`    |
+
+### Card Example 1
+
+| Parameter | Value    |
+|-----------|----------|
+| user      | `yizack` |
+| theme     | `dark`   |
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
+```
+#### Result
+
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
+
+### Card Example 2
+
+| Parameter | Value    |
+|-----------|----------|
+| user      | `yizack` |
+| n         | `2`      |
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
+```
+#### Result
+
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
+
+### Card Example 3
+
+| Parameter | Value          |
+|-----------|----------------|
+| user      | `Cy4Bot`       |
+| n         | `20`           |
+| title     | `Cy4Bot Gists` |
+
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
+```
+
+#### Result
+
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
+
+
+## Gists Pin
+
+
+### Parameters
+
+| Parameter | Description                   | Optional | Default value |
+| --------- | ----------------------------- | -------- | ------------- |
+| `user`    | Your GitHub profile username. | No       |               |
+| `id`      |  Your Gist ID                 | No       |               |
+| `owner`   | Shows the owner of the gist,  | Yes      | `false`       |
+| `theme`   | Sets the theme of the pin.    | Yes      | `default`     |
+
+### Pin Example 1
+
+| Parameter | Value                              |
+|-----------|------------------------------------|
+| user      | `yizack`                           |
+| id        | `bbfce31e0217a3689c8d961a356cb10d` |
+
+#### Result
+
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+
+### Pin Example 2
+
+| Parameter | Value                              |
+|-----------|------------------------------------|
+| user      | `yizack`                           |
+| id        | `8a84dabef525fed523573b47258880e0` |
+| owner     | `true`                             |
+| theme     | `dark`                             |
+
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
+
+### Pin Example 3
+
+| Parameter | Value                              |
+|-----------|------------------------------------|
+| user      | `yizack`                           |
+| id        | `cbe7cef5572e6b832da0e9bd3454b312` |
+| owner     | `true`                             |
+
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=cbe7cef5572e6b832da0e9bd3454b312&owner=true)](https://gist.github.com/Yizack/cbe7cef5572e6b832da0e9bd3454b312)
 
 ##
 
