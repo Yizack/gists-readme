@@ -3,13 +3,15 @@ import { getTheme } from "../src/functions.js";
 const themes = {
   default: {
     "primary_color": "#0969da",
-    "text_color": "#24292f",
-    "bg_color": "#fffefe"
+    "text_color": "#434d58",
+    "bg_color": "#fffefe",
+    "icon_color": "#586069"
   },
   dark: {
     "primary_color": "#58a6ff",
     "text_color": "#c9d1d9",
-    "bg_color": "#0d1117"
+    "bg_color": "#0d1117",
+    "icon_color": "#58a6ff"
   }
 };
 
