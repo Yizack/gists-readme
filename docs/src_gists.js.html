@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yizack/gists-readme Documentation functions.js</title>
+  <title>Yizack/gists-readme Documentation src/gists.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -92,7 +92,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-card.html">card</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-functions.html">functions</a></li><li><a href="module-gists.html">gists</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-api.html">api</a></li><li><a href="module-card.html">card</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-functions.html">functions</a></li><li><a href="module-gists.html">gists</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-api-app.html">app</a></li></ul></div>
                 
             </nav>
         </div>
@@ -100,7 +100,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>functions.js</h1>
+                    <h1>src/gists.js</h1>
                 </header>
                 
 
@@ -109,31 +109,30 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** @module functions */
-import { createRequire } from "module";
+            <pre class="prettyprint source linenums"><code>/**
+ * @module gists
+ * @requires axios
+ * @requires dotenv
+*/
+import axios from "axios";
+import * as dotenv from "dotenv";
 
-const require = createRequire(import.meta.url);
-const languages = require("../resources/language_colors.json");
-const themes = require("../resources/themes.json");
-
-/** 
- * Returns the language hex color code from the language_colors.json file
- * @function
- * @param {string} name Name of the language 
- * @returns {string} Hex color code
- */
-export const getLanguageColor = (name) => { // export language color
-  return languages.hasOwnProperty(name) ? languages[name].color : "#ededed";
-};
+dotenv.config(); // load environment variables
 
 /**
- * Returns the theme object from the themes.json file
+ * This function returns the gists object from the GitHub API for a given user
  * @function
- * @param {string} name Name of the theme
- * @returns {Object} Theme object
+ * @async
+ * @param {string} user Github username
+ * @returns {Object} Gist response object
  */
-export const getTheme = (name) => { // export theme
-  return themes.hasOwnProperty(name) ? themes[name] : themes["default"];
+export const getGists = async (user) => {
+  try {
+    return await axios.get(`https://api.github.com/users/${user}/gists`, { headers: { Authorization:  `token ${process.env.token}` } });
+  }
+  catch {
+    return { data: [] };
+  }
 };
 </code></pre>
         </article>

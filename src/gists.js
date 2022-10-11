@@ -1,11 +1,15 @@
-/** @module gists */
+/**
+ * @module gists
+ * @requires axios
+ * @requires dotenv
+*/
 import axios from "axios";
 import * as dotenv from "dotenv";
 
 dotenv.config(); // load environment variables
 
 /**
- * Returns a list of gists for a given user
+ * This function returns the gists object from the GitHub API for a given user
  * @function
  * @async
  * @param {string} user Github username

@@ -5,7 +5,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yizack/gists-readme Documentation constants</title>
+  <title>Yizack/gists-readme Documentation app</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -97,8 +97,8 @@
         <div class="core" id="main-content-wrapper">
             <div class="content">
                 <header class="page-title">
-                    <p>Module</p>
-                    <h1>constants</h1>
+                    <p>Namespace</p>
+                    <h1>app</h1>
                 </header>
                 
 
@@ -109,6 +109,8 @@
 
 <header>
     
+        <h2>
+            <span class="ancestors"><a href="module-api.html">api</a>~</span>app</h2>
         
     
 </header>
@@ -117,6 +119,53 @@
     <div class="container-overview">
     
         
+            <div class="description"><p>Initializes express</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="api_index.js.html" class="button">View Source</a>
+            <span>
+                <a href="api_index.js.html">api/index.js</a>, <a href="api_index.js.html#line20">line 20</a>
+            </span>
+        </p>
+    
+</dl>
+
 
         
     
@@ -135,34 +184,39 @@
     
 
     
+
+    
         <div class='vertical-section'>
-            <h1>Members</h1>
+            <h1>Methods</h1>
             <div class="members">
             
                 <div class="member">
 
-    <span class="method-parameter is-pulled-right">
-        <label>Type:</label>
-        
-<code class="param-type">Object</code>
 
-
-    </span>
-
-<h4 class="name" id=".CONSTANTS">
-    <a class="href-link" href="#.CONSTANTS">#</a>
     
+    <h4 class="name" id="./api">
+        <a class="href-link" href="#./api">#</a>
         
-            <span class='tag'>static</span>
+            
+                <span class='tag'>async</span>
+            
+                <span class='tag'>static</span>
+            
         
-            <span class='tag'>constant</span>
-        
+        <span class="code-name">
+            
+                /api<span class="signature">(req, res)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
     
-    <span class="code-name">
-        CONSTANTS
-    </span>
+
     
-</h4>
+    
+    <div class="description">
+        <p>This endpoint displays the card on the browser</p>
+    </div>
+    
 
 
 
@@ -171,11 +225,11 @@
 
 
 
-    <h5 class="subsection-title">Properties:</h5>
 
+    <h5>Parameters:</h5>
     
 <div class="table-container">
-    <table class="props table">
+    <table class="params table">
         <thead>
         <tr>
             
@@ -194,170 +248,179 @@
 
         <tbody>
         
+
             
 <tr class="deep-level-0">
-    
-        <td class="name"><code>X_LEFT</code></td>
-    
+  
+      <td class="name"><code>req</code></td>
+  
 
-    <td class="type">
-    
-        
-<code class="param-type">number</code>
+  <td class="type">
+  
+      
+<code class="param-type">Object</code>
 
 
-    
-    </td>
+  
+  </td>
 
-    
+  
 
-    
+  
 
-    <td class="description last"><p>X position of gist on the left</p></td>
+  <td class="description last"><p>Request object</p></td>
 </tr>
 
-        
-            
-<tr class="deep-level-0">
+  
+  
     
-        <td class="name"><code>X_RIGHT</code></td>
-    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>query</code></td>
+  
 
-    <td class="type">
-    
-        
-<code class="param-type">number</code>
+  <td class="type">
+  
+      
+<code class="param-type">Object</code>
 
 
-    
-    </td>
+  
+  </td>
 
-    
+  
 
-    
+  
 
-    <td class="description last"><p>X position of gist on the right</p></td>
+  <td class="description last"><p>Query object</p></td>
 </tr>
 
-        
-            
-<tr class="deep-level-0">
+  
     
-        <td class="name"><code>Y_DOWN</code></td>
-    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>query.user</code></td>
+  
 
-    <td class="type">
-    
-        
-<code class="param-type">number</code>
-
-
-    
-    </td>
-
-    
-
-    
-
-    <td class="description last"><p>Y line break size of gist</p></td>
-</tr>
-
-        
-            
-<tr class="deep-level-0">
-    
-        <td class="name"><code>MAX_GISTS</code></td>
-    
-
-    <td class="type">
-    
-        
-<code class="param-type">number</code>
-
-
-    
-    </td>
-
-    
-
-    
-
-    <td class="description last"><p>Maximum number of gists to display</p></td>
-</tr>
-
-        
-            
-<tr class="deep-level-0">
-    
-        <td class="name"><code>DEFAULT_THEME</code></td>
-    
-
-    <td class="type">
-    
-        
+  <td class="type">
+  
+      
 <code class="param-type">string</code>
 
 
-    
-    </td>
+  
+  </td>
 
-    
+  
 
-    
+  
 
-    <td class="description last"><p>Default theme</p></td>
+  <td class="description last"><p>Github username</p></td>
 </tr>
 
-        
-            
-<tr class="deep-level-0">
+  
     
-        <td class="name"><code>DEFAULT_TITLE</code></td>
-    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>query.theme</code></td>
+  
 
-    <td class="type">
-    
-        
+  <td class="type">
+  
+      
 <code class="param-type">string</code>
 
 
-    
-    </td>
+  
+  </td>
 
-    
+  
 
-    
+  
 
-    <td class="description last"><p>Default title</p></td>
+  <td class="description last"><p>Theme name</p></td>
 </tr>
 
-        
-            
-<tr class="deep-level-0">
+  
     
-        <td class="name"><code>WIDTH</code></td>
-    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>query.n</code></td>
+  
 
-    <td class="type">
-    
-        
+  <td class="type">
+  
+      
 <code class="param-type">number</code>
 
 
-    
-    </td>
+  
+  </td>
 
-    
+  
 
-    
+  
 
-    <td class="description last"><p>Width of the card</p></td>
+  <td class="description last"><p>Number of gists to display</p></td>
 </tr>
+
+  
+    
+<tr class="deep-level-1">
+  
+      <td class="name"><code>query.title</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">string</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Title of the card</p></td>
+</tr>
+
+  
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>res</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Object</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>Response object</p></td>
+</tr>
+
 
         
         </tbody>
     </table>
 </div>
+
+
 
 
 
@@ -394,9 +457,9 @@
 
     
         <p class="tag-source">
-            <a href="src_constants.js.html" class="button">View Source</a>
+            <a href="api_index.js.html" class="button">View Source</a>
             <span>
-                <a href="src_constants.js.html">src/constants.js</a>, <a href="src_constants.js.html#line14">line 14</a>
+                <a href="api_index.js.html">api/index.js</a>, <a href="api_index.js.html#line32">line 32</a>
             </span>
         </p>
     
@@ -406,12 +469,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
             
             </div>
         </div>
-    
-
     
 
     

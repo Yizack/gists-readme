@@ -1,4 +1,8 @@
-/** @module card */
+/**
+ * @module card 
+ * @requires constants
+ * @requires functions
+ */
 import { CONSTANTS } from "./constants.js";
 import { getLanguageColor, getTheme } from "../src/functions.js";
 

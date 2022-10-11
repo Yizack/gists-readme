@@ -1,4 +1,7 @@
-/** @module functions */
+/** 
+ * @module functions 
+ * @requires module
+ */
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);

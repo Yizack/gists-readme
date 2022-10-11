@@ -7,7 +7,7 @@
   
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Yizack/gists-readme Documentation card.js</title>
+  <title>Yizack/gists-readme Documentation src/card.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -92,7 +92,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-card.html">card</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-functions.html">functions</a></li><li><a href="module-gists.html">gists</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Modules</h3><ul><li><a href="module-api.html">api</a></li><li><a href="module-card.html">card</a></li><li><a href="module-constants.html">constants</a></li><li><a href="module-functions.html">functions</a></li><li><a href="module-gists.html">gists</a></li></ul><h3>Namespaces</h3><ul><li><a href="module-api-app.html">app</a></li></ul></div>
                 
             </nav>
         </div>
@@ -100,7 +100,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>card.js</h1>
+                    <h1>src/card.js</h1>
                 </header>
                 
 
@@ -109,7 +109,11 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>/** @module card */
+            <pre class="prettyprint source linenums"><code>/**
+ * @module card 
+ * @requires constants
+ * @requires functions
+ */
 import { CONSTANTS } from "./constants.js";
 import { getLanguageColor, getTheme } from "../src/functions.js";
 
@@ -175,7 +179,7 @@ export const getCard = (query, gists_response) => {
     "gists": gists,
     "height": height,
     "width": WIDTH
-  }
+  };
 
   return card;
 };

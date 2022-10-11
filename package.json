@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --verbose",
-    "docs": "jsdoc ./src -c jsdoc.conf.json"
+    "docs": "jsdoc -c jsdoc.conf.json -r"
   },
   "author": "Yizack Rangel",
   "license": "MIT",
