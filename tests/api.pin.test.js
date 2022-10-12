@@ -3,10 +3,6 @@ import app from "./../api/pin.js";
 import request from "supertest";
 import axios from "axios";
 
-afterEach(() => {
-  jest.useRealTimers();
-});
-
 jest.mock("axios");
 
 const fakeResponse = {
@@ -46,16 +42,16 @@ const fakeHTML0 = {
 axios.get = jest.fn();
 
 describe("renderCard", () => {
-  jest.useFakeTimers("legacy");
+
   test("should render card", async () => {
-    jest.useFakeTimers("legacy");
+
     axios.get.mockResolvedValueOnce(fakeResponse);
     axios.get.mockResolvedValueOnce(fakeHTML);
     await request(app).get("/api/pin").expect("Content-Type", /svg/);
   });
 
   test("should render card with 0 stars and forks", async () => {
-    jest.useFakeTimers("legacy");
+
     axios.get.mockResolvedValueOnce(fakeResponse);
     axios.get.mockResolvedValueOnce(fakeHTML0);
     await request(app).get("/api/pin").expect("Content-Type", /svg/);
