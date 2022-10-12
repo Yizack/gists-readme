@@ -2,6 +2,7 @@ import { jest } from "@jest/globals";
 import app from "./../api/pin.js";
 import request from "supertest";
 import axios from "axios";
+jest.useFakeTimers();
 
 jest.mock("axios");
 
