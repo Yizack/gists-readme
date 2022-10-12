@@ -4,7 +4,7 @@
  * @requires functions
  */
 import { CONSTANTS } from "./constants.js";
-import { getLanguageColor, getTheme } from "../src/functions.js";
+import { getLanguageColor, getTheme } from "./functions.js";
 
 const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, WIDTH } = CONSTANTS; // get constants
 

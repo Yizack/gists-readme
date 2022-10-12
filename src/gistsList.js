@@ -1,5 +1,5 @@
 /**
- * @module gists_list
+ * @module gistsList
  * @requires axios
  * @requires dotenv
 */

@@ -1,4 +1,4 @@
-import { getCard } from "../src/card.js";
+import { getCard } from "../src/Card.js";
 
 const fakeGist = {
   data: [
