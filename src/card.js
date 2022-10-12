@@ -1,5 +1,5 @@
 /**
- * @module card 
+ * @module Card 
  * @requires constants
  * @requires functions
  */
