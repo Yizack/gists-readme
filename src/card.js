@@ -6,7 +6,7 @@
 import { CONSTANTS } from "./constants.js";
 import { getLanguageColor, getTheme } from "./functions.js";
 
-const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, WIDTH } = CONSTANTS; // get constants
+const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, CARD_WIDTH, CARD_HEIGHT } = CONSTANTS; // get constants
 
 /**
  * Returns the card object
@@ -52,7 +52,7 @@ export const getCard = (query, gists_response) => {
       newLine = false; // next position same line
     }
     else {
-      y = y + Y_DOWN; // y next position: down
+      y += Y_DOWN; // y next position: down
     }
 
     i++; // increment counter
@@ -60,13 +60,14 @@ export const getCard = (query, gists_response) => {
     return i == n; // stop iterating after n gists
   });
 
-  let height = y + 100; // height of the card
+  let height = CARD_HEIGHT + y;
+  height = (i % 2 == 0) ? height - Y_DOWN : height; // height of the card
 
   return { // card
     "theme": getTheme(theme),
     "title": title || DEFAULT_TITLE,
     "gists": gists,
     "height": height,
-    "width": WIDTH
+    "width": CARD_WIDTH
   };
 };

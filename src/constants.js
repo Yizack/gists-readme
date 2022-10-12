@@ -9,7 +9,9 @@
  * @property {number} MAX_GISTS=30 Maximum number of gists to display
  * @property {string} [DEFAULT_THEME=default] Default theme
  * @property {string} [DEFAULT_TITLE=My Gists] Default title
- * @property {number} WIDTH=495 Width of the card
+ * @property {number} CARD_WIDTH=495 Width of the card
+ * @property {number} CARD_HEIGHT=100 Height of the card
+ * @property {number} PIN_WIDTH=400 Width of the pin
  * @property {number} PIN_HEIGHT=120 Height of the pin
  * @property {number} PIN_STATS_Y=45 Y position of pin stats
  * @property {number} BREAK_SIZE=15 Size of the line break
@@ -22,7 +24,9 @@ export const CONSTANTS = {
   MAX_GISTS: 30,
   DEFAULT_THEME: "default",
   DEFAULT_TITLE: "My Gists",
-  WIDTH: 495,
+  CARD_WIDTH: 495,
+  CARD_HEIGHT: 100,
+  PIN_WIDTH: 400,
   PIN_HEIGHT: 120,
   PIN_STATS_Y: 45,
   BREAK_SIZE: 15,
