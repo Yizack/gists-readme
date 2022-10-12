@@ -5,7 +5,7 @@
  * @requires gist
  */
 import app from "./../src/appManager.js";
-import { getPin } from "./../src/Pin.js";
+import { getPin } from "./../src/pin.js";
 import { getSingleGist } from "./../src/gist.js";
 
 /**
