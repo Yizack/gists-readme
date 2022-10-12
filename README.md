@@ -36,12 +36,13 @@ Display a list of your gists
 | user      | `yizack` |
 | theme     | `dark`   |
 
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
-```
 #### Result
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
+```
 
 ### Card Example 2
 
@@ -50,12 +51,13 @@ Display a list of your gists
 | user      | `yizack` |
 | n         | `2`      |
 
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
-```
 #### Result
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
+```
 
 ### Card Example 3
 
@@ -65,15 +67,13 @@ Display a list of your gists
 | n         | `20`           |
 | title     | `Cy4Bot Gists` |
 
-
-```
-[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
-```
-
 #### Result
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
 
+```
+[![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
+```
 
 ## Gists Pin
 
@@ -98,6 +98,10 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
 
+```
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+```
+
 ### Pin Example 2
 
 | Parameter | Value                              |
@@ -107,7 +111,13 @@ Display a list of your gists
 | owner     | `true`                             |
 | theme     | `dark`                             |
 
+#### Result
+
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
+
+```
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
+```
 
 ##
 
