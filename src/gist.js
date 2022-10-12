@@ -1,13 +1,13 @@
 /**
  * @module gist
  * @requires axios
- * @requires jsdom
+ * @requires linkedom
  * @requires gistsList
 */
 import axios from "axios";
-import { JSDOM } from "jsdom";
+import { parseHTML } from "linkedom";
 import { getGists } from "./gistsList.js";
-
+console.time("getSingleGist");
 
 /**
  * This function returns a Gist object from the GitHub API for a given user
@@ -27,8 +27,8 @@ export const getSingleGist = async (query) => {
 
   let response = {};
 
-  await axios.get(`https://gist.github.com/${user}/${id}`).then((dom) => {
-    const { document } = new JSDOM(dom.data).window;
+  await axios.get(`https://gist.github.com/${user}/${id}/stargazers`).then((dom) => {
+    const { document } = parseHTML(dom.data);
     let nav = document.querySelector("[aria-label=\"Gist\"]");
     
     let stars_box = nav.querySelector("[data-hotkey=\"g s\"] span.Counter");
@@ -36,7 +36,7 @@ export const getSingleGist = async (query) => {
 
     let stars = stars_box ? stars_box.title : 0;
     let forks = forks_box ? forks_box.title : 0;
-
+    console.timeEnd("getSingleGist");
     response = {
       "data": gist,
       "stars": stars,
