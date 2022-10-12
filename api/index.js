@@ -24,6 +24,7 @@ import { getGists } from "./../src/gistsList.js";
  */
 app.get("/api", async (req, res) => {
   let card = getCard(req.query, await getGists(req.query.user)); // get card
+  res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
   res.render("card", card); // render card template
 });

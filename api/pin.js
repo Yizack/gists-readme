@@ -24,6 +24,7 @@ import { getSingleGist } from "./../src/gist.js";
  */
 app.get("/api/pin", async (req, res) => {
   let pin = getPin(req.query, await getSingleGist(req.query)); // get card
+  res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
   res.render("pin", pin); // render pin template
 });
