@@ -5,8 +5,8 @@
 import { createRequire } from "module";
 
 const require = createRequire(import.meta.url);
-const languages = require("../resources/language_colors.json");
-const themes = require("../resources/themes.json");
+const languages = require("./../resources/language_colors.json");
+const themes = require("./../resources/themes.json");
 
 /** 
  * Returns the language hex color code from the language_colors.json file

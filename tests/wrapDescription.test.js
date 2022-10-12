@@ -1,4 +1,4 @@
-import { wrapDescription } from "../src/functions.js";
+import { wrapDescription } from "./../src/functions.js";
 
 describe("wrapDescription", () => {
   test("should wrap description", () => {

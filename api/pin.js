@@ -7,8 +7,8 @@
 import express from "express";
 import hbs from "hbs";
 import path from "path";
-import { getPin } from "../src/Pin.js";
-import { getSingleGist } from "../src/gist.js";
+import { getPin } from "./../src/Pin.js";
+import { getSingleGist } from "./../src/gist.js";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url); // Get the current directory

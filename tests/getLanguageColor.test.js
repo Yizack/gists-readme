@@ -1,4 +1,4 @@
-import { getLanguageColor } from "../src/functions.js";
+import { getLanguageColor } from "./../src/functions.js";
 
 describe("getLanguageColor", () => {
   test("JavaScript - should return language color", () => {

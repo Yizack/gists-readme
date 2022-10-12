@@ -1,4 +1,4 @@
-import { getTheme } from "../src/functions.js";
+import { getTheme } from "./../src/functions.js";
 
 const themes = {
   default: {
