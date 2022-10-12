@@ -109,16 +109,6 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
 
-### Pin Example 3
-
-| Parameter | Value                              |
-|-----------|------------------------------------|
-| user      | `yizack`                           |
-| id        | `cbe7cef5572e6b832da0e9bd3454b312` |
-| owner     | `true`                             |
-
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=cbe7cef5572e6b832da0e9bd3454b312&owner=true)](https://gist.github.com/Yizack/cbe7cef5572e6b832da0e9bd3454b312)
-
 ##
 
 Inspired by [anuraghazra/github-readme-stats](https://github.com/anuraghazra/github-readme-stats).\
