@@ -7,7 +7,6 @@
 import axios from "axios";
 import { parseHTML } from "linkedom";
 import { getGists } from "./gistsList.js";
-console.time("getSingleGist");
 
 /**
  * This function returns a Gist object from the GitHub API for a given user
@@ -36,7 +35,7 @@ export const getSingleGist = async (query) => {
 
     let stars = stars_box ? stars_box.title : 0;
     let forks = forks_box ? forks_box.title : 0;
-    console.timeEnd("getSingleGist");
+    
     response = {
       "data": gist,
       "stars": stars,
