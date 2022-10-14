@@ -61,7 +61,7 @@ describe("getPin", () => {
     test(`${JSON.stringify(query)} - should return empty pin`, async () => {
       axios.get.mockResolvedValue(fakeNoForksStarsHTML);
       const pin = await getPin(query, { data: [] });
-      expect(pin.gist).toStrictEqual([]);
+      expect(pin.filename).toBeUndefined();
     });
   });
 });
