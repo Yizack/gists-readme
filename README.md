@@ -41,7 +41,7 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
 
-```
+```md
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&theme=dark)](https://gist.github.com/Yizack)
 ```
 
@@ -56,7 +56,7 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
 
-```
+```md
 [![gists-readme](https://gists-readme.yizack.com/api?user=yizack&n=2)](https://gist.github.com/Yizack)
 ```
 
@@ -72,7 +72,7 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
 
-```
+```md
 [![gists-readme](https://gists-readme.yizack.com/api?user=Cy4Bot&n=20&title=Cy4Bot+Gists)](https://gist.github.com/Cy4Bot)
 ```
 
@@ -99,7 +99,7 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
 
-```
+```md
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
 ```
 
@@ -116,7 +116,7 @@ Display a list of your gists
 
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
 
-```
+```md
 [![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
 ```
 
