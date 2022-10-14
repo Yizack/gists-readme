@@ -4,7 +4,7 @@ import axios from "axios";
 
 jest.mock("axios");
 
-const fakeGist = {
+const fakeGists = {
   data: [
     {
       files: {
@@ -33,16 +33,11 @@ const fakeGist = {
   ]
 };
 
-const fakeEmptyGist = {
-  data: []
-};
-
 axios.get = jest.fn();
 
 describe("getGists", () => {
-
   test("yizack - should return gists", async () => {
-    axios.get.mockResolvedValue(fakeGist);
+    axios.get.mockResolvedValue(fakeGists);
     const gists = await getGists("yizack");
     expect(gists.data[0].files["reduce_dataset.js"].language).toEqual("JavaScript");
     expect(gists.data[1].files["submissions.gs"].language).toEqual("JavaScript");
@@ -55,15 +50,14 @@ describe("getGists", () => {
       expect(e).rejects.toThrow();
     });
 
-    axios.get.mockResolvedValue(fakeEmptyGist);
+    axios.get.mockResolvedValue({ data: [] });
     const gists = await getGists();
     expect(gists.data).toEqual([]);
   });
 
   test("user doesn't exist - should return empty array", async () => {
-    axios.get.mockResolvedValue(fakeEmptyGist);
+    axios.get.mockResolvedValue({ data: [] });
     const gists = await getGists("_");
     expect(gists.data).toEqual([]);
   });
-
 });

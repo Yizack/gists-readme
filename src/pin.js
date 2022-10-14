@@ -1,10 +1,14 @@
 /**
  * @module Pin
+ * @requires axios
  * @requires constants
  * @requires functions
+ * @requires linkedom
  */
+import axios from "axios";
 import { CONSTANTS } from "./constants.js";
 import { getLanguageColor, getTheme, wrapDescription} from "./functions.js";
+import { parseHTML } from "linkedom";
 
 const { DEFAULT_THEME, BREAK_SIZE, PIN_WIDTH, PIN_HEIGHT, PIN_STATS_Y, CHARS_WRAP } = CONSTANTS; // get constants
 
@@ -15,20 +19,44 @@ const { DEFAULT_THEME, BREAK_SIZE, PIN_WIDTH, PIN_HEIGHT, PIN_STATS_Y, CHARS_WRA
  * @param {string} query.user User name
  * @param {string} query.theme Theme name
  * @param {boolean} query.owner Owner flag
- * @param {Object} gist_response Gists response object 
- * @param {Object[]} gist_response.data Gists data
- * @param {number} gist_response.stars Gists stars
- * @param {number} gist_response.forks Gists forks
+ * @param {Object} gist_response Gist response object 
+ * @param {Object} gist_response.data Gist data
  * @returns {Object} Pin object
  */
-export const getPin = (query, gist_response) => {
+export const getPin = async (query, gist_response) => {
   const { user, theme = DEFAULT_THEME, owner = false } = query; // get query parameters
-  const { data, stars, forks } = gist_response; // get gist data
-  const gist = data[0]; // get gist
+  const gist = gist_response.data;
+  const id = gist.id;
   const description = wrapDescription(gist.description, CHARS_WRAP); // wrap description
   const breaks = (description.match(/dy/g) || []).length; // number of breaks
   const height = PIN_HEIGHT + (breaks * BREAK_SIZE); // pin height
   const y_stats = PIN_STATS_Y + (breaks * BREAK_SIZE); // y position of stats
+
+  let filename, language, color;
+  filename = language = color = "";
+  if (gist.files) {
+    filename = Object.keys(gist.files)[0];
+    language = gist.files[Object.keys(gist.files)[0]].language;
+    color = getLanguageColor(gist.files[Object.keys(gist.files)[0]].language);
+  }
+
+  let stars = 0;
+  let forks = 0;
+  
+  try {
+    await axios.get(`https://gist.github.com/${user}/${id}/stargazers`).then((dom) => {
+      const { document } = parseHTML(dom.data);
+      let nav = document.querySelector("[aria-label=\"Gist\"]");
+      let stars_box = nav.querySelector("[data-hotkey=\"g s\"] span.Counter");
+      let forks_box = nav.querySelector("[data-hotkey=\"g f\"] span.Counter");
+      stars = stars_box ? stars_box.title : 0;
+      forks = forks_box ? forks_box.title : 0;
+    });
+  }
+  catch (error) {
+    stars = 0;
+    forks = 0;
+  }
 
   return { // pin
     "gist": gist,
@@ -41,8 +69,8 @@ export const getPin = (query, gist_response) => {
     "y_stats": y_stats,
     "owner": owner,
     "theme": getTheme(theme), // get theme
-    "filename": Object.keys(gist.files)[0], // gist filename
-    "language": gist.files[Object.keys(gist.files)[0]].language, // gist language
-    "gistColor": getLanguageColor(gist.files[Object.keys(gist.files)[0]].language) // gist language color
+    "filename": filename, // gist filename
+    "language": language, // gist language
+    "gistColor": color // gist language color
   };
 };

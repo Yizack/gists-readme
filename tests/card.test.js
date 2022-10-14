@@ -1,8 +1,9 @@
 import { getCard } from "./../src/card.js";
 
-const fakeGist = {
+const fakeGists = {
   data: [
     {
+      public: true,
       files: {
         "reduce_dataset.js": {
           filename: "reduce_dataset.js",
@@ -11,6 +12,7 @@ const fakeGist = {
       },
     },
     {
+      public: true,
       files: {
         "submissions.gs": {
           filename: "submissions.gs",
@@ -19,6 +21,7 @@ const fakeGist = {
       },
     },
     {
+      public: true,
       files: {
         "provincias.json": {
           filename: "provincias.json",
@@ -46,7 +49,7 @@ const empty_card = [
 describe("getCard", () => {
   defined_card.forEach((query) => {
     test(`${JSON.stringify(query)} - should return card`, async () => {
-      const card = getCard(query, fakeGist);
+      const card = getCard(query, fakeGists);
       expect(card).toBeDefined();
     });
   });

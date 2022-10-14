@@ -27,7 +27,7 @@ export const getCard = (query, gists_response) => {
   let i = 0; // counter
   let newLine = false; // new line flag
 
-  gists_response.data.some((gist) => {
+  gists_response.data.filter((gist) => gist.public).some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
     let gistColor = getLanguageColor(language); // gist language color

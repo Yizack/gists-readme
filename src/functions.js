@@ -35,6 +35,6 @@ export const getTheme = (name) => { // export theme
  * @param {number} chars Number of characters to wrap
  * @returns {string} Wrapped description for SVG
  */
-export const wrapDescription = (description, chars) => {
+export const wrapDescription = (description="", chars) => {
   return description.replace(new RegExp(`(?![^\n]{1,${chars}}$)([^\n]{1,${chars}})\\s`, "g"), "$1</tspan><tspan dy=\"1.2em\" x=\"25\">"); // wrap description
 };

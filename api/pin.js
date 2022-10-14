@@ -6,7 +6,7 @@
  */
 import app from "./../src/appManager.js";
 import { getPin } from "./../src/pin.js";
-import { getSingleGist } from "./../src/gist.js";
+import { getGist } from "./../src/gist.js";
 
 /**
  * This endpoint displays the card on the browser
@@ -23,7 +23,7 @@ import { getSingleGist } from "./../src/gist.js";
  * @param {Object} res Response object
  */
 app.get("/api/pin", async (req, res) => {
-  let pin = getPin(req.query, await getSingleGist(req.query)); // get card
+  const pin = await getPin(req.query, await getGist(req.query.id)); // get card
   res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
   res.render("pin", pin); // render pin template
