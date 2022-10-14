@@ -1,84 +1,71 @@
-<svg width="{{ width }}" height="{{ height }}" viewBox="0 0 {{ width }} {{ height }}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="descId">
-  <title id="titleId"></title>
-  <desc id="descId"></desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="{{ value.width }}" height="{{ value.height }}" viewBox="0 0 {{ value.width }} {{ value.height }}" fill="none" role="img" aria-labelledby="desc">
+  {{#if owner}}user
+  <title>{{ gist.user }}/{{ gist.filename }} Gist Pin</title>
+  {{else}}
+  <title>{{ gist.filename }} Gist Pin</title>
+  {{/if}}
+  <desc id="desc">{{ gist.description }}</desc>
   <style>
     .header {
-      font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif;
-      fill: {{ theme.primary_color }};
-      animation: fadeInAnimation 0.8s ease-in-out forwards;
+      font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
+      fill: {{ theme.primary_color }}
     }
 
     @supports(-moz-appearance: auto) {
       /* Selector detects Firefox */
       .header {
-        font-size: 15.5px;
+        font-size: 15.5px
       }
     }
 
     .description {
-      font: 400 13px 'Segoe UI', Ubuntu, Sans-Serif;
+      font: 400 13px "Segoe UI", Ubuntu, Sans-Serif
+    }
+
+    .text-color {
       fill: {{ theme.text_color }}
     }
 
-    .gray {
-      font: 400 12px 'Segoe UI', Ubuntu, Sans-Serif;
-      fill: {{ theme.text_color }}
+    .lang-color {
+      fill: {{ gist.lang_color }}
+    }
+
+    .text-small {
+      font: 400 12px "Segoe UI", Ubuntu, Sans-Serif
     }
 
     .icon {
       fill: {{ theme.icon_color }}
     }
 
-    /* Animations */
-    @keyframes scaleInAnimation {
-      from {
-        transform: translate(-5px, 5px) scale(0);
-      }
-
-      to {
-        transform: translate(-5px, 5px) scale(1);
-      }
-    }
-
-    @keyframes fadeInAnimation {
-      from {
-        opacity: 0;
-      }
-
-      to {
-        opacity: 1;
-      }
-    }
-
-    * {
-      animation-duration: 0s !important;
-      animation-delay: 0s !important;
+    .fade {
+      animation: fade 0.5s ease-in-out forwards
     }
   </style>
-  <rect data-testid="card-bg" x="0.5" y="0.5" rx="4.5" height="99%" stroke="{{ theme.border_color }}" width="399" fill="{{ theme.bg_color }}" stroke-opacity="1" />
-  <g data-testid="card-title" transform="translate(25, 35)">
+  <rect x="0.5" y="0.5" rx="4.5" height="99%" stroke="{{ theme.border_color }}" width="{{subtract value.width 1}}" fill="{{ theme.bg_color }}" stroke-opacity="1"/>
+  <g transform="translate(25, 35)">
     <g transform="translate(0, 0)">
       <svg class="icon" x="0" y="-13" viewBox="0 0 16 16" version="1.1" width="16" height="16">
         <path fill-rule="evenodd" d="M1.75 1.5a.25.25 0 00-.25.25v12.5c0 .138.112.25.25.25h12.5a.25.25 0 00.25-.25V1.75a.25.25 0 00-.25-.25H1.75zM0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0114.25 16H1.75A1.75 1.75 0 010 14.25V1.75zm9.22 3.72a.75.75 0 000 1.06L10.69 8 9.22 9.47a.75.75 0 101.06 1.06l2-2a.75.75 0 000-1.06l-2-2a.75.75 0 00-1.06 0zM6.78 6.53a.75.75 0 00-1.06-1.06l-2 2a.75.75 0 000 1.06l2 2a.75.75 0 101.06-1.06L5.31 8l1.47-1.47z"></path>
       </svg>
     </g>
     <g transform="translate(25, 0)">
-      {{#if owner}}
-      <text x="0" y="0" class="header" data-testid="header">{{ user }}/{{ filename }}</text>
+      {{#if value.owner}}
+      <text x="0" y="0" class="header">{{ gist.user }}/{{ gist.filename }}</text>
       {{else}}
-      <text x="0" y="0" class="header" data-testid="header">{{ filename }}</text>
+      <text x="0" y="0" class="header">{{ gist.filename }}</text>
       {{/if}}
     </g>
   </g>
-  <g data-testid="main-card-body" transform="translate(0, 55)">
-    <text class="description" x="25" y="-5">
-      <tspan dy="1.2em" x="25">{{{ description }}}</tspan>
+  <g transform="translate(0, 55)">
+    <text class="description text-color" x="25" y="-5">
+      <tspan dy="1.2em" x="25">{{{ gist.broken_description }}}</tspan>
     </text>
-    <g transform="translate(30, {{ y_stats }})">
+    <g transform="translate(30, {{ value.y_stats }})">
       <g transform="translate(0, 0)">
-        <g data-testid="primary-lang">
-          <circle data-testid="lang-color" cx="0" cy="-5" r="6" fill="{{ gistColor }}" />
-          <text data-testid="lang-name" class="gray" x="15">{{ language }}</text>
+        <g>
+          <circle class="lang-color" cx="0" cy="-5" r="6"/>
+          <text class="text-small text-color" x="15">{{ gist.language }}</text>
         </g>
       </g>
       <g transform="translate(80.93125, 0)">
@@ -88,7 +75,7 @@
           </svg>
         </g>
         <g transform="translate(20, 0)">
-          <text data-testid="stargazers" class="gray">{{ stars }}</text>
+          <text class="text-small text-color">{{ gist.stars }}</text>
         </g>
       </g>
       <g transform="translate(151.21875, 0)">
@@ -98,7 +85,7 @@
           </svg>
         </g>
         <g transform="translate(20, 0)">
-          <text data-testid="forkcount" class="gray">{{ forks }}</text>
+          <text class="text-small text-color">{{ gist.forks }}</text>
         </g>
       </g>
     </g>

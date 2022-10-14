@@ -27,8 +27,9 @@ export const getPin = async (query, gist_response) => {
   const { user, theme = DEFAULT_THEME, owner = false } = query; // get query parameters
   const gist = gist_response.data;
   const id = gist.id;
-  const description = wrapDescription(gist.description, CHARS_WRAP); // wrap description
-  const breaks = (description.match(/dy/g) || []).length; // number of breaks
+  const description = gist.description;
+  const broken_description = wrapDescription(description, CHARS_WRAP); // wrap description
+  const breaks = (broken_description.match(/dy/g) || []).length; // number of breaks
   const height = PIN_HEIGHT + (breaks * BREAK_SIZE); // pin height
   const y_stats = PIN_STATS_Y + (breaks * BREAK_SIZE); // y position of stats
 
@@ -59,18 +60,22 @@ export const getPin = async (query, gist_response) => {
   }
 
   return { // pin
-    "gist": gist,
-    "user": user,
-    "description": description,
-    "stars": stars,
-    "forks": forks,
-    "height": height,
-    "width": PIN_WIDTH,
-    "y_stats": y_stats,
-    "owner": owner,
     "theme": getTheme(theme), // get theme
-    "filename": filename, // gist filename
-    "language": language, // gist language
-    "gistColor": color // gist language color
+    "gist": {
+      "user": user,
+      "filename": filename, // gist filename
+      "description": description,
+      "broken_description": broken_description,
+      "language": language, // gist language
+      "lang_color": color, // gist language color
+      "stars": stars,
+      "forks": forks
+    },
+    "value": {
+      "height": height,
+      "width": PIN_WIDTH,
+      "y_stats": y_stats,
+      "owner": owner,
+    }
   };
 };

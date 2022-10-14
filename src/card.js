@@ -30,12 +30,12 @@ export const getCard = (query, gists_response) => {
   gists_response.data.filter((gist) => gist.public).some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
-    let gistColor = getLanguageColor(language); // gist language color
+    let lang_color = getLanguageColor(language); // gist language color
     
     gists.push({
-      "file": filename, // gist filename
+      "filename": filename, // gist filename
       "language": language, // gist language
-      "gistColor": gistColor, // gist language color
+      "lang_color": lang_color, // gist language color
       "y" : y, // y position of gist
       "x" : x // x position of gist
     });
@@ -64,10 +64,12 @@ export const getCard = (query, gists_response) => {
   height = (i % 2 == 0) ? height - Y_DOWN : height; // height of the card
 
   return { // card
-    "theme": getTheme(theme),
-    "title": title || DEFAULT_TITLE,
+    "theme": getTheme(theme), // theme
     "gists": gists,
-    "height": height,
-    "width": CARD_WIDTH
+    "value": {
+      "title": title || DEFAULT_TITLE,
+      "height": height,
+      "width": CARD_WIDTH
+    }
   };
 };
