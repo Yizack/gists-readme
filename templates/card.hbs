@@ -18,7 +18,7 @@
       fill: {{ theme.text_color }}
     }
   </style>
-  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="{{ theme.bg_color }}" stroke-opacity="0"/>
+  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="{{ theme.bg_color }}" stroke="{{ theme.border_color }}" stroke-opacity="1"/>
   <g transform="translate(25, 40)">
     <g transform="translate(0, 0)">
       <text x="0" y="0" class="header">{{ value.title }}</text>
