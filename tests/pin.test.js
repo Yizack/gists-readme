@@ -36,17 +36,14 @@ const fakeNoForksStarsHTML = {
 };
 
 const defined_pin = [
-  { n: 3 },
-  { title: "" },
-  { title: "Yizack Gists" },
-  { theme: "dark" },
+  { id: "cbe7cef5572e6b832da0e9bd3454b312" },
+  { id: "cbe7cef5572e6b832da0e9bd3454b312", user: "Yizack" }
 ];
 
 const empty_pin = [
-  { n: 0 },
-  { theme: "dark" },
-  { user: "_" },
-  { user: "" }
+  { id: "_" },
+  { id: "_", user: "Yizack" },
+  { user: "Yizack" }
 ];
 
 axios.get = jest.fn();
