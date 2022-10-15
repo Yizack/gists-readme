@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="{{ value.width }}" height="{{ value.height }}" viewBox="0 0 {{ value.width }} {{ value.height }}" fill="none" role="img" aria-labelledby="desc">
-  {{#if owner}}user
+  {{#if value.owner}}
   <title>{{ gist.user }}/{{ gist.filename }} Gist Pin</title>
   {{else}}
   <title>{{ gist.filename }} Gist Pin</title>
