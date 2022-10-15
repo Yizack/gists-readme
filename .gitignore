@@ -3,8 +3,5 @@ node_modules
 *.env
 .vercel
 coverage
-codecov.exe
-.eslintrc.json
-.eslintignore
 docs
 .vercelignore
