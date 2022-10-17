@@ -1,27 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="{{ value.width }}" height="{{ value.height }}" viewBox="0 0 {{ value.width }} {{ value.height }}" fill="none" role="img">
   <title>{{ value.title }}</title>
-  <style>
-    .header {
-      font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: #{{ theme.primary_color }}
-    }
-
-    @supports(-moz-appearance: auto) {
-      /* Selector detects Firefox */
-      .header {
-        font-size: 15.5px
-      }
-    }
-
-    .gist-name {
-      font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: #{{ theme.text_color }}
-    }
-  </style>
   <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="#{{ theme.bg_color }}" stroke="#{{ theme.border_color }}" stroke-opacity="1"/>
   <g transform="translate(25, 40)">
     <g transform="translate(0, 0)">
-      <text x="0" y="0" class="header">{{ value.title }}</text>
+      <text x="0" y="0" fill="#{{ theme.primary_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18px" font-weight="600">{{ value.title }}</text>
     </g>
   </g>
   <g transform="translate(0, 35)">
@@ -32,7 +14,7 @@
             <g transform="translate({{ this.x }}, {{ this.y }})">
               <g>
                 <circle cx="5" cy="6" r="5" fill="#{{ this.lang_color }}"/>
-                <text x="15" y="10" class="gist-name">{{ this.filename }}</text>
+                <text x="15" y="10" fill="#{{ ../theme.text_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="11px" font-weight="400">{{ this.filename }}</text>
               </g>
             </g>
           {{/each}}
