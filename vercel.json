@@ -1,17 +1,17 @@
 {
-    "version": 2,
-    "functions": {
-      "api/index.js": {
-        "memory": 512
-      },
-      "api/pin.js": {
-        "memory": 1024
-      }
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "memory": 512
     },
-    "redirects": [
-      {
-        "source": "/docs",
-        "destination": "/docs/"
-      }
-    ]
-  }
+    "api/pin.js": {
+      "memory": 1024
+    }
+  },
+  "redirects": [
+    {
+      "source": "/docs",
+      "destination": "/docs/"
+    }
+  ]
+}
