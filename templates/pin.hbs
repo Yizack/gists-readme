@@ -8,7 +8,7 @@
   <style>
     .header {
       font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: {{ theme.primary_color }}
+      fill: #{{ theme.primary_color }}
     }
 
     @supports(-moz-appearance: auto) {
@@ -23,11 +23,11 @@
     }
 
     .text-color {
-      fill: {{ theme.text_color }}
+      fill: #{{ theme.text_color }}
     }
 
     .lang-color {
-      fill: {{ gist.lang_color }}
+      fill: #{{ gist.lang_color }}
     }
 
     .text-small {
@@ -35,14 +35,14 @@
     }
 
     .icon {
-      fill: {{ theme.icon_color }}
+      fill: #{{ theme.icon_color }}
     }
 
     .fade {
       animation: fade 0.5s ease-in-out forwards
     }
   </style>
-  <rect x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="{{ theme.bg_color }}" stroke="{{ theme.border_color }}"  stroke-opacity="1"/>
+  <rect x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="#{{ theme.bg_color }}" stroke="#{{ theme.border_color }}"  stroke-opacity="1"/>
   <g transform="translate(25, 35)">
     <g transform="translate(0, 0)">
       <svg class="icon" x="0" y="-13" viewBox="0 0 16 16" version="1.1" width="16" height="16">

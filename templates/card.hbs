@@ -3,7 +3,7 @@
   <style>
     .header {
       font: 600 18px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: {{ theme.primary_color }}
+      fill: #{{ theme.primary_color }}
     }
 
     @supports(-moz-appearance: auto) {
@@ -15,10 +15,10 @@
 
     .gist-name {
       font: 400 11px "Segoe UI", Ubuntu, Sans-Serif;
-      fill: {{ theme.text_color }}
+      fill: #{{ theme.text_color }}
     }
   </style>
-  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="{{ theme.bg_color }}" stroke="{{ theme.border_color }}" stroke-opacity="1"/>
+  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="#{{ theme.bg_color }}" stroke="#{{ theme.border_color }}" stroke-opacity="1"/>
   <g transform="translate(25, 40)">
     <g transform="translate(0, 0)">
       <text x="0" y="0" class="header">{{ value.title }}</text>
@@ -31,7 +31,7 @@
           {{#each gists}}
             <g transform="translate({{ this.x }}, {{ this.y }})">
               <g>
-                <circle cx="5" cy="6" r="5" fill="{{ this.lang_color }}"/>
+                <circle cx="5" cy="6" r="5" fill="#{{ this.lang_color }}"/>
                 <text x="15" y="10" class="gist-name">{{ this.filename }}</text>
               </g>
             </g>
