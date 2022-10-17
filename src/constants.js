@@ -24,7 +24,7 @@ export const CONSTANTS = {
   MAX_GISTS: 30,
   DEFAULT_THEME: "default",
   DEFAULT_TITLE: "My Gists",
-  CARD_WIDTH: 495,
+  CARD_WIDTH: 445,
   CARD_HEIGHT: 100,
   PIN_WIDTH: 400,
   PIN_HEIGHT: 120,
