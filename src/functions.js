@@ -15,7 +15,7 @@ const themes = require("./../resources/themes.json");
  * @returns {string} Hex color code
  */
 export const getLanguageColor = (name) => { // export language color
-  return Object.prototype.hasOwnProperty.call(languages, name) ? languages[name].color : "#ededed";
+  return Object.prototype.hasOwnProperty.call(languages, name) ? languages[name].color : "ededed";
 };
 
 /**
