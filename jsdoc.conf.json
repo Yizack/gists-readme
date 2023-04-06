@@ -13,9 +13,9 @@
     "dictionaries": ["jsdoc","closure"]
   },
   "opts": {
-  "template": "node_modules/better-docs",
-  "readme": "README.md",
-  "destination": "docs"
+    "template": "node_modules/better-docs",
+    "readme": "README.md",
+    "destination": "docs"
   },
   "templates": {
     "cleverLinks": false,
