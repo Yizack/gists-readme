@@ -29,6 +29,7 @@
         <circle cx="0" cy="-5" r="6" fill="#{{ gist.lang_color }}"/>
         <text x="15" fill="#{{ theme.text_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="12px" font-weight="400">{{ gist.language }}</text>
       </g>
+      {{#if gist.stars}}
       <g transform="translate(80.93125, 0)">
         <g transform="translate(0, 0)">
           <svg y="-12" viewBox="0 0 16 16" version="1.1" width="16" height="16" fill="#{{ theme.icon_color }}">
@@ -39,6 +40,8 @@
           <text fill="#{{ theme.text_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="12px" font-weight="400">{{ gist.stars }}</text>
         </g>
       </g>
+      {{/if}}
+      {{#if gist.forks}}
       <g transform="translate(151.21875, 0)">
         <g transform="translate(0, 0)">
           <svg y="-12" viewBox="0 0 16 16" version="1.1" width="16" height="16" fill="#{{ theme.icon_color }}">
@@ -49,6 +52,7 @@
           <text fill="#{{ theme.text_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="12px" font-weight="400">{{ gist.forks }}</text>
         </g>
       </g>
+      {{/if}}
     </g>
   </g>
 </svg>
