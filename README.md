@@ -16,6 +16,9 @@ Display a card with your Gists on your GitHub README.md
 
 Generate your card here: [https://gists-readme.yizack.com](https://gists-readme.yizack.com)
 
+## Cache
+
+Cache is configured to expire after 4 hours and is implemented on the Vercel Edge Network by using `Cache-Control: max-age=0, s-maxage=14400` header for every API response.
 
 ## Gists List Card
 
