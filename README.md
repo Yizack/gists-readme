@@ -111,16 +111,16 @@ Display a list of your gists
 | Parameter | Value                              |
 |-----------|------------------------------------|
 | user      | `yizack`                           |
-| id        | `8a84dabef525fed523573b47258880e0` |
+| id        | `07694a749c8fc5f4d996a2bd50237939` |
 | owner     | `true`                             |
 | theme     | `dark`                             |
 
 #### Result
 
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
 
 ```md
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=8a84dabef525fed523573b47258880e0&owner=true&theme=dark)](https://gist.github.com/Yizack/8a84dabef525fed523573b47258880e0)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
 ```
 
 ##
