@@ -13,7 +13,7 @@
     "dictionaries": ["jsdoc","closure"]
   },
   "opts": {
-    "template": "node_modules/better-docs",
+    "template": "node_modules/clean-jsdoc-theme",
     "readme": "README.md",
     "destination": "docs"
   },

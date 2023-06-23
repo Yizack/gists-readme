@@ -5,7 +5,7 @@ on:
       - "*"
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -13,20 +13,43 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [18.x]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Setup Node
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Setup Node 🐢
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
+        
+      - name: PNPM Setup 🟨
+        uses: pnpm/action-setup@v2
+        id: pnpm-install
+        with:
+          version: 8
+          run_install: false
 
-      - name: Install & Test
+      - name: Get pnpm store directory 📁
+        id: pnpm-cache
+        shell: bash
         run: |
-          npm ci
-          npm run test  
-          
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm Cache ☁️
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install & Test 🧪
+        run: |
+          pnpm install
+          pnpm test
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
