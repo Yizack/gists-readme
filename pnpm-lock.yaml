@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   axios:
-    specifier: ^1.4.0
-    version: 1.4.0
+    specifier: ^1.5.0
+    version: 1.5.0
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -18,13 +18,13 @@ dependencies:
     specifier: ^4.2.0
     version: 4.2.0
   linkedom:
-    specifier: ^0.15.1
-    version: 0.15.1
+    specifier: ^0.15.3
+    version: 0.15.3
 
 devDependencies:
   clean-jsdoc-theme:
-    specifier: ^4.2.9
-    version: 4.2.9(jsdoc@4.0.2)
+    specifier: ^4.2.10
+    version: 4.2.10(jsdoc@4.0.2)
   jest:
     specifier: ^29.6.4
     version: 29.6.4
@@ -830,8 +830,8 @@ packages:
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  /axios@1.4.0:
-    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
+  /axios@1.5.0:
+    resolution: {integrity: sha512-D4DdjDo5CY50Qms0qGQTTw6Q44jl7zRwY7bthds06pUGfChBCTcQs+N743eFWGEd6pRTMd6A+I87aWyFV5wiZQ==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -1061,8 +1061,8 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /clean-jsdoc-theme@4.2.9(jsdoc@4.0.2):
-    resolution: {integrity: sha512-4ssTudHtQey0Y7j7LnSoQmr2+JBOmQmMnCM2sHZZbjAp3rMYYl2Dy+e4LWzygJxxTGNMbp2KEDtYKAZ9p8yLZw==}
+  /clean-jsdoc-theme@4.2.10(jsdoc@4.0.2):
+    resolution: {integrity: sha512-7+x6RKK3Nt7jGeaJReH7KySkqdA8H+595jRL/LIWiJ7F83NXRCSzkzWDxHWOEmraf+UASa3fD1DBeuz/o0nmiw==}
     peerDependencies:
       jsdoc: '>=3.x <=4.x'
     dependencies:
@@ -2331,8 +2331,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /linkedom@0.15.1:
-    resolution: {integrity: sha512-8U+wi0VI0JW7ehxX+N/rmZyLWV9bypiCOUeklGBWslpiTpxHnVfY+yHmf6sg06q2kXYdpIJWC6LMpepgOq+JXg==}
+  /linkedom@0.15.3:
+    resolution: {integrity: sha512-p+lBSEWzawF3Gy7+nw+5+u+iDthsfZZVd9lwiO96Ihj7Zd8he5BD1Wzdc9Z4GqtU6lKvxhye4W4Zr20uOAGe4A==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
