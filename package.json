@@ -20,7 +20,8 @@
   },
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage --verbose",
-    "docs": "jsdoc -c jsdoc.conf.json -r"
+    "docs": "jsdoc -c jsdoc.conf.json -r",
+    "lint": "eslint --ext .ts,.js --fix --ignore-path .gitignore ."
   },
   "dependencies": {
     "axios": "^1.6.3",

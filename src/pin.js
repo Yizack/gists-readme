@@ -19,7 +19,7 @@ const { DEFAULT_THEME, BREAK_SIZE, PIN_WIDTH, PIN_HEIGHT, PIN_STATS_Y, CHARS_WRA
  * @param {string} query.user User name
  * @param {string} query.theme Theme name
  * @param {boolean} query.owner Owner flag
- * @param {Object} gist_response Gist response object 
+ * @param {Object} gist_response Gist response object
  * @param {Object} gist_response.data Gist data
  * @returns {Object} Pin object
  */
@@ -43,7 +43,7 @@ export const getPin = async (query, gist_response) => {
 
   let stars = 0;
   let forks = 0;
-  
+
   try {
     await axios.get(`https://gist.github.com/${user}/${id}/stargazers`).then((dom) => {
       const { document } = parseHTML(dom.data);
