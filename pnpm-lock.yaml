@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   axios:
-    specifier: ^1.6.2
-    version: 1.6.2
+    specifier: ^1.6.3
+    version: 1.6.3
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
@@ -18,8 +18,8 @@ dependencies:
     specifier: ^4.2.0
     version: 4.2.0
   linkedom:
-    specifier: ^0.16.5
-    version: 0.16.5
+    specifier: ^0.16.6
+    version: 0.16.6
 
 devDependencies:
   clean-jsdoc-theme:
@@ -830,8 +830,8 @@ packages:
   /asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
 
-  /axios@1.6.2:
-    resolution: {integrity: sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==}
+  /axios@1.6.3:
+    resolution: {integrity: sha512-fWyNdeawGam70jXSVlKl+SUNVcL6j6W79CuSIPfi6HnDUmSCH6gyUys/HrqHeA/wU0Az41rRgean494d0Jb+ww==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
@@ -2348,8 +2348,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /linkedom@0.16.5:
-    resolution: {integrity: sha512-FtcuLuxDtlKWWilm5Z0HgmrfMwO0tOfC6tu47fRXj2/KGEeDSh4ihiDwFKZSbJj6zh520r8XZjZ7v2Jb30HAQA==}
+  /linkedom@0.16.6:
+    resolution: {integrity: sha512-vJ8oadtJe3DM4FNW15Fj5NLIJlJk+AOypoRxzq9prLx+gAKvHYcTfV98pzOoRkwx4ZvvYzqT1bcDKluHH72apg==}
     dependencies:
       css-select: 5.1.0
       cssom: 0.5.0
