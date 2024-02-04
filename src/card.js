@@ -15,8 +15,7 @@ const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, CARD_W
  * @param {string} query.theme Theme name
  * @param {number} query.n Number of gists to display
  * @param {string} query.title Title of the card
- * @param {Object} gists_response Gists response object
- * @param {Object[]} gists_response.data Gists data
+ * @param {Object[]} gists_response Gists response
  * @returns {Object} Card object
  */
 export const getCard = (query, gists_response) => {
@@ -27,7 +26,7 @@ export const getCard = (query, gists_response) => {
   let i = 0; // counter
   let newLine = false; // new line flag
 
-  gists_response.data.filter((gist) => gist.public).some((gist) => {
+  gists_response.filter((gist) => gist.public).some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
     let lang_color = getLanguageColor(language); // gist language color

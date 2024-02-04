@@ -1,9 +1,9 @@
 /**
  * @module gistsList
- * @requires axios
+ * @requires ofetch
  * @requires dotenv
 */
-import axios from "axios";
+import { $fetch } from "ofetch";
 import * as dotenv from "dotenv";
 dotenv.config(); // load environment variables
 
@@ -12,13 +12,11 @@ dotenv.config(); // load environment variables
  * @function
  * @async
  * @param {string} user Github username
- * @returns {Object[]} Gist response object
+ * @returns {Promise<{data: any[]}>} Gists object
  */
 export const getGists = async (user) => {
-  try {
-    return await axios.get(`https://api.github.com/users/${user}/gists`, { headers: { Authorization:  `Bearer ${process.env.token}` } });
-  }
-  catch {
-    return { data: [] };
-  }
+  const req = await $fetch(`https://api.github.com/users/${user}/gists`, { headers: { Authorization:  `Bearer ${process.env.token}` } }).catch(() => null);
+
+  if (!req || !req.length) return [];
+  return req;
 };
