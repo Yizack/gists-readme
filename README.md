@@ -86,7 +86,6 @@ Display a list of your gists
 
 | Parameter | Description                   | Optional | Default value |
 | --------- | ----------------------------- | -------- | ------------- |
-| `user`    | Your GitHub profile username. | No       |               |
 | `id`      |  Your Gist ID                 | No       |               |
 | `owner`   | Shows the owner of the gist,  | Yes      | `false`       |
 | `theme`   | Sets the theme of the pin.    | Yes      | `default`     |
@@ -95,32 +94,30 @@ Display a list of your gists
 
 | Parameter | Value                              |
 |-----------|------------------------------------|
-| user      | `yizack`                           |
 | id        | `bbfce31e0217a3689c8d961a356cb10d` |
 
 #### Result
 
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
 
 ```md
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?id=bbfce31e0217a3689c8d961a356cb10d)](https://gist.github.com/Yizack/bbfce31e0217a3689c8d961a356cb10d)
 ```
 
 ### Pin Example 2
 
 | Parameter | Value                              |
 |-----------|------------------------------------|
-| user      | `yizack`                           |
 | id        | `07694a749c8fc5f4d996a2bd50237939` |
 | owner     | `true`                             |
 | theme     | `dark`                             |
 
 #### Result
 
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
 
 ```md
-[![gists-readme](https://gists-readme.yizack.com/api/pin?user=yizack&id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
+[![gists-readme](https://gists-readme.yizack.com/api/pin?id=07694a749c8fc5f4d996a2bd50237939&owner=true&theme=dark)](https://gist.github.com/Yizack/07694a749c8fc5f4d996a2bd50237939)
 ```
 
 ##
