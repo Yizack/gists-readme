@@ -1,9 +1,9 @@
 /**
  * @module gist
- * @requires axios
+ * @requires ofetch
  * @requires dotenv
 */
-import axios from "axios";
+import { $fetch } from "ofetch";
 import * as dotenv from "dotenv";
 dotenv.config(); // load environment variables
 
@@ -15,10 +15,44 @@ dotenv.config(); // load environment variables
  * @returns {Object} Gist object
  */
 export const getGist = async (id) => {
-  try {
-    return await axios.get(`https://api.github.com/gists/${id}`, { headers: { Authorization:  `Bearer ${process.env.token}` } });
-  }
-  catch {
-    return { data: {} };
-  }
+  const query = `
+    query gistInfo($gistId: String!) {
+      viewer {
+        gist(name: $gistId) {
+          description
+          owner {
+            login
+          }
+          stargazers {
+            totalCount
+          }
+          forks {
+            totalCount
+          }
+          files {
+            name
+            language {
+              name
+            }
+            size
+          }
+        }
+      }
+    }`;
+
+  const req = await $fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.token}`
+    },
+    body: {
+      query,
+      variables: {
+        gistId: id
+      }
+    }
+  }).catch(() => null);
+
+  if (!req || req.errors) return { data: { viewer: { gist: null } } };
+  return req;
 };
