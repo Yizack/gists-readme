@@ -5,7 +5,7 @@
       "memory": 512
     },
     "api/pin.js": {
-      "memory": 1024
+      "memory": 512
     }
   },
   "redirects": [
