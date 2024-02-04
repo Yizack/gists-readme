@@ -1,45 +1,66 @@
-import { jest } from "@jest/globals";
+import { describe, it, expect, vi } from "vitest";
 import { getGist } from "./../src/gist.js";
-import axios from "axios";
-
-jest.mock("axios");
+import { $fetch } from "ofetch";
 
 const fakeGist = {
   id: "cbe7cef5572e6b832da0e9bd3454b312",
   data: {
-    description: "description",
-    files: {
-      "reduce_dataset.js": {
-        filename: "reduce_dataset.js",
-        language: "JavaScript"
+    viewer: {
+      gist: {
+        description: "Provincias, distritos y corregimientos de Panamá incluyendo las comarcas a nivel de provincias y su respectivo prefijo de cédula. Archivo JSON. Actualizado 2024",
+        owner: {
+          login: "Yizack"
+        },
+        stargazers: {
+          totalCount: 1
+        },
+        forks: {
+          totalCount: 1
+        },
+        files: [
+          {
+            name: "provincias.json",
+            language: {
+              name: "JSON"
+            },
+            size: 1
+          }
+        ]
       }
     }
   }
 };
 
-axios.get = jest.fn();
+const fakeNULL = { data: { viewer: { gist: null } } };
+
+const errorGist = {
+  errors: []
+};
+
+vi.mock("ofetch", async (importOriginal) => {
+  const mod = await importOriginal();
+  return {
+    ...mod,
+    $fetch: vi.fn(),
+  };
+});
 
 describe("getGist", () => {
-  test("gist id - should return gist", async () => {
-    axios.get.mockResolvedValue(fakeGist);
+  it("gist id - should return gist", async () => {
+    vi.mocked($fetch).mockResolvedValue(fakeGist);
     const gist = await getGist("cbe7cef5572e6b832da0e9bd3454b312");
-    expect(gist.data.files["reduce_dataset.js"].language).toEqual("JavaScript");
+    expect(gist.data.viewer.gist.files[0].language.name).toEqual("JSON");
   });
 
-  test("undefined - should go on error and return empty data object", async () => {
-    axios.get.mockResolvedValue(Promise.reject(new Error()));
-    await getGist().catch((e) => {
-      expect(e).rejects.toThrow();
-    });
-
-    axios.get.mockResolvedValue({ data: {} });
+  it("undefined - should go on error and return null gist object", async () => {
+    vi.mocked($fetch).mockResolvedValue(errorGist);
     const gists = await getGist();
-    expect(gists.data).toEqual({});
+    expect(gists.data.viewer.gist).toBeNull();
   });
 
-  test("gist doesn't exist - should return empty object", async () => {
-    axios.get.mockResolvedValue({ data: {} });
+  it("gist doesn't exist - should return empty object", async () => {
+    vi.mocked($fetch).mockResolvedValue(fakeNULL);
     const gists = await getGist("_");
-    expect(gists.data).toEqual({});
+    expect(gists.data.viewer.gist).toBeNull();
   });
 });

@@ -1,36 +1,35 @@
+import { describe, it, expect } from "vitest";
 import { getCard } from "./../src/card.js";
 
-const fakeGists = {
-  data: [
-    {
-      public: true,
-      files: {
-        "reduce_dataset.js": {
-          filename: "reduce_dataset.js",
-          language: "JavaScript",
-        },
+const fakeGists = [
+  {
+    public: true,
+    files: {
+      "reduce_dataset.js": {
+        filename: "reduce_dataset.js",
+        language: "JavaScript",
       },
     },
-    {
-      public: true,
-      files: {
-        "submissions.gs": {
-          filename: "submissions.gs",
-          language: "JavaScript",
-        },
+  },
+  {
+    public: true,
+    files: {
+      "submissions.gs": {
+        filename: "submissions.gs",
+        language: "JavaScript",
       },
     },
-    {
-      public: true,
-      files: {
-        "provincias.json": {
-          filename: "provincias.json",
-          language: "JSON",
-        },
+  },
+  {
+    public: true,
+    files: {
+      "provincias.json": {
+        filename: "provincias.json",
+        language: "JSON",
       },
-    }
-  ]
-};
+    },
+  }
+];
 
 const defined_card = [
   { n: 3 },
@@ -48,15 +47,15 @@ const empty_card = [
 
 describe("getCard", () => {
   defined_card.forEach((query) => {
-    test(`${JSON.stringify(query)} - should return card`, async () => {
+    it(`${JSON.stringify(query)} - should return card`, async () => {
       const card = getCard(query, fakeGists);
       expect(card).toBeDefined();
     });
   });
 
   empty_card.forEach((query) => {
-    test(`${JSON.stringify(query)} - should return empty card`, async () => {
-      const card = getCard(query, { data: [] });
+    it(`${JSON.stringify(query)} - should return empty card`, async () => {
+      const card = getCard(query, []);
       expect(card.gists).toStrictEqual([]);
     });
   });

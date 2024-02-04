@@ -1,3 +1,4 @@
+import { describe, it, expect } from "vitest";
 import { getTheme } from "./../src/functions.js";
 
 const themes = {
@@ -18,23 +19,23 @@ const themes = {
 };
 
 describe("getTheme", () => {
-  test("default - should return default theme", () => {
+  it("default - should return default theme", () => {
     expect(getTheme("default")).toStrictEqual(themes.default);
   });
 
-  test("dark - should return dark theme", () => {
+  it("dark - should return dark theme", () => {
     expect(getTheme("dark")).toStrictEqual(themes.dark);
   });
 
-  test("random string - should return default theme", () => {
+  it("random string - should return default theme", () => {
     expect(getTheme("foo")).toStrictEqual(themes.default);
   });
 
-  test("undefined - should return default theme", () => {
+  it("undefined - should return default theme", () => {
     expect(getTheme()).toStrictEqual(themes.default);
   });
 
-  test("empty string - should return default theme", () => {
+  it("empty string - should return default theme", () => {
     expect(getTheme("")).toStrictEqual(themes.default);
   });
 });
