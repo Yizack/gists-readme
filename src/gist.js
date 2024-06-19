@@ -46,7 +46,7 @@ export const getGist = async (id) => {
       Authorization: `Bearer ${process.env.token}`
     },
     body: {
-      query,
+      query: query.trim(),
       variables: {
         gistId: id
       }
