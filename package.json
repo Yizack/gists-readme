@@ -25,17 +25,17 @@
     "lint": "eslint --fix"
   },
   "devDependencies": {
-    "@vitest/coverage-v8": "^1.6.0",
+    "@vitest/coverage-v8": "^2.0.5",
     "clean-jsdoc-theme": "^4.3.0",
     "dotenv": "^16.4.5",
-    "eslint": "^9.5.0",
+    "eslint": "^9.9.1",
     "express": "^4.19.2",
     "hbs": "^4.2.0",
     "jsdoc": "^4.0.3",
     "ofetch": "^1.3.4",
     "supertest": "^7.0.0",
-    "vercel": "^34.2.7",
-    "vitest": "^1.6.0"
+    "vercel": "^37.2.1",
+    "vitest": "^2.0.5"
   },
-  "packageManager": "pnpm@9.4.0"
+  "packageManager": "pnpm@9.9.0"
 }
