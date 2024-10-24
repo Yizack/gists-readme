@@ -43,17 +43,17 @@ const emptyPin = [
 ];
 
 describe("getPin", () => {
-  definedPin.forEach((query) => {
+  for (const query of definedPin) {
     it(`${JSON.stringify(query)} - should return pin`, async () => {
       const pin = await getPin(query, fakeGist);
       expect(pin).toBeDefined();
     });
-  });
+  }
 
-  emptyPin.forEach((query) => {
+  for (const query of emptyPin) {
     it(`${JSON.stringify(query)} - should return empty pin`, async () => {
       const pin = await getPin(query, fakeNULL);
       expect(pin.filename).toBeUndefined();
     });
-  });
+  }
 });

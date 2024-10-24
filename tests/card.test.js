@@ -46,17 +46,17 @@ const emptyCard = [
 ];
 
 describe("getCard", () => {
-  definedCard.forEach((query) => {
+  for (const query of definedCard) {
     it(`${JSON.stringify(query)} - should return card`, async () => {
       const card = getCard(query, fakeGists);
       expect(card).toBeDefined();
     });
-  });
+  }
 
-  emptyCard.forEach((query) => {
+  for (const query of emptyCard) {
     it(`${JSON.stringify(query)} - should return empty card`, async () => {
       const card = getCard(query, []);
       expect(card.gists).toStrictEqual([]);
     });
-  });
+  }
 });
