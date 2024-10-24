@@ -15,7 +15,7 @@ dotenv.config(); // load environment variables
  * @returns {Promise<{data: any[]}>} Gists object
  */
 export const getGists = async (user) => {
-  const req = await $fetch(`https://api.github.com/users/${user}/gists`, { headers: { Authorization:  `Bearer ${process.env.token}` } }).catch(() => null);
+  const req = await $fetch(`https://api.github.com/users/${user}/gists`, { headers: { Authorization: `Bearer ${process.env.token}` } }).catch(() => null);
 
   if (!req || !req.length) return [];
   return req;

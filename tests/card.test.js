@@ -7,38 +7,38 @@ const fakeGists = [
     files: {
       "reduce_dataset.js": {
         filename: "reduce_dataset.js",
-        language: "JavaScript",
-      },
-    },
+        language: "JavaScript"
+      }
+    }
   },
   {
     public: true,
     files: {
       "submissions.gs": {
         filename: "submissions.gs",
-        language: "JavaScript",
-      },
-    },
+        language: "JavaScript"
+      }
+    }
   },
   {
     public: true,
     files: {
       "provincias.json": {
         filename: "provincias.json",
-        language: "JSON",
-      },
-    },
+        language: "JSON"
+      }
+    }
   }
 ];
 
-const defined_card = [
+const definedCard = [
   { n: 3 },
   { title: "" },
   { title: "Yizack Gists" },
-  { theme: "dark" },
+  { theme: "dark" }
 ];
 
-const empty_card = [
+const emptyCard = [
   { n: 0 },
   { theme: "dark" },
   { user: "_" },
@@ -46,14 +46,14 @@ const empty_card = [
 ];
 
 describe("getCard", () => {
-  defined_card.forEach((query) => {
+  definedCard.forEach((query) => {
     it(`${JSON.stringify(query)} - should return card`, async () => {
       const card = getCard(query, fakeGists);
       expect(card).toBeDefined();
     });
   });
 
-  empty_card.forEach((query) => {
+  emptyCard.forEach((query) => {
     it(`${JSON.stringify(query)} - should return empty card`, async () => {
       const card = getCard(query, []);
       expect(card.gists).toStrictEqual([]);

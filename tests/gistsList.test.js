@@ -7,25 +7,25 @@ const fakeGists = [
     files: {
       "reduce_dataset.js": {
         filename: "reduce_dataset.js",
-        language: "JavaScript",
-      },
-    },
+        language: "JavaScript"
+      }
+    }
   },
   {
     files: {
       "submissions.gs": {
         filename: "submissions.gs",
-        language: "JavaScript",
-      },
-    },
+        language: "JavaScript"
+      }
+    }
   },
   {
     files: {
       "provincias.json": {
         filename: "provincias.json",
-        language: "JSON",
-      },
-    },
+        language: "JSON"
+      }
+    }
   }
 ];
 
@@ -33,7 +33,7 @@ vi.mock("ofetch", async (importOriginal) => {
   const mod = await importOriginal();
   return {
     ...mod,
-    $fetch: vi.fn(),
+    $fetch: vi.fn()
   };
 });
 

@@ -15,10 +15,10 @@ const { X_LEFT, X_RIGHT, Y_DOWN, MAX_GISTS, DEFAULT_THEME, DEFAULT_TITLE, CARD_W
  * @param {string} query.theme Theme name
  * @param {number} query.n Number of gists to display
  * @param {string} query.title Title of the card
- * @param {Object[]} gists_response Gists response
+ * @param {Object[]} gistsResponse Gists response
  * @returns {Object} Card object
  */
-export const getCard = (query, gists_response) => {
+export const getCard = (query, gistsResponse) => {
   const { theme = DEFAULT_THEME, n = MAX_GISTS, title = DEFAULT_TITLE } = query; // get query parameters
   let gists = []; // array of gists
   let x = X_LEFT; // x position of gist
@@ -26,17 +26,17 @@ export const getCard = (query, gists_response) => {
   let i = 0; // counter
   let newLine = false; // new line flag
 
-  gists_response.filter((gist) => gist.public).some((gist) => {
+  gistsResponse.filter((gist) => gist.public).some((gist) => {
     let filename = Object.keys(gist.files)[0]; // gist filename
     let language = gist.files[filename].language; // gist language
-    let lang_color = getLanguageColor(language); // gist language color
+    let langColor = getLanguageColor(language); // gist language color
 
     gists.push({
-      "filename": filename, // gist filename
-      "language": language, // gist language
-      "lang_color": lang_color, // gist language color
-      "y" : y, // y position of gist
-      "x" : x // x position of gist
+      filename: filename, // gist filename
+      language: language, // gist language
+      langColor: langColor, // gist language color
+      y: y, // y position of gist
+      x: x // x position of gist
     });
 
     if (x == X_LEFT && !newLine) {
@@ -63,12 +63,12 @@ export const getCard = (query, gists_response) => {
   height = (i % 2 == 0) ? height - Y_DOWN : height; // height of the card
 
   return { // card
-    "theme": getTheme(theme), // theme
-    "gists": gists,
-    "value": {
-      "title": title || DEFAULT_TITLE,
-      "height": height,
-      "width": CARD_WIDTH
+    theme: getTheme(theme), // theme
+    gists: gists,
+    value: {
+      title: title || DEFAULT_TITLE,
+      height: height,
+      width: CARD_WIDTH
     }
   };
 };

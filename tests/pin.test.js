@@ -32,25 +32,25 @@ const fakeGist = {
 
 const fakeNULL = { data: { viewer: { gist: null } } };
 
-const defined_pin = [
+const definedPin = [
   { id: "cbe7cef5572e6b832da0e9bd3454b312" },
   { id: "cbe7cef5572e6b832da0e9bd3454b312", owner: "true" }
 ];
 
-const empty_pin = [
+const emptyPin = [
   { id: "_" },
   { }
 ];
 
 describe("getPin", () => {
-  defined_pin.forEach((query) => {
+  definedPin.forEach((query) => {
     it(`${JSON.stringify(query)} - should return pin`, async () => {
       const pin = await getPin(query, fakeGist);
       expect(pin).toBeDefined();
     });
   });
 
-  empty_pin.forEach((query) => {
+  emptyPin.forEach((query) => {
     it(`${JSON.stringify(query)} - should return empty pin`, async () => {
       const pin = await getPin(query, fakeNULL);
       expect(pin.filename).toBeUndefined();

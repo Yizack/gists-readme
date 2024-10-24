@@ -41,7 +41,7 @@ vi.mock("ofetch", async (importOriginal) => {
   const mod = await importOriginal();
   return {
     ...mod,
-    $fetch: vi.fn(),
+    $fetch: vi.fn()
   };
 });
 

@@ -14,16 +14,16 @@ const { DEFAULT_THEME, BREAK_SIZE, PIN_WIDTH, PIN_HEIGHT, PIN_STATS_Y, CHARS_WRA
  * @param {Object} query Query object
  * @param {string} query.theme Theme name
  * @param {boolean} query.owner Owner flag
- * @param {Object} gist_response Gist response object
- * @param {Object} gist_response.data Gist data
- * @param {Object} gist_response.data.viewer Viewer object
- * @param {Object} gist_response.data.viewer.gist Gist object
+ * @param {Object} gistResponse Gist response object
+ * @param {Object} gistResponse.data Gist data
+ * @param {Object} gistResponse.data.viewer Viewer object
+ * @param {Object} gistResponse.data.viewer.gist Gist object
  * @returns {Object} Pin object
  */
-export const getPin = async (query, gist_response) => {
+export const getPin = async (query, gistResponse) => {
   const { theme = DEFAULT_THEME, owner = false } = query; // get query parameters
 
-  const gist = gist_response.data.viewer.gist;
+  const gist = gistResponse.data.viewer.gist;
   const user = gist?.owner?.login;
   const description = gist?.description;
   const stars = gist?.stargazers?.totalCount;
@@ -37,28 +37,28 @@ export const getPin = async (query, gist_response) => {
     color = getLanguageColor(gist.files[0].language.name);
   }
 
-  const broken_description = wrapDescription(description, CHARS_WRAP); // wrap description
-  const breaks = (broken_description.match(/dy/g) || []).length; // number of breaks
+  const brokenDescription = wrapDescription(description, CHARS_WRAP); // wrap description
+  const breaks = (brokenDescription.match(/dy/g) || []).length; // number of breaks
   const height = PIN_HEIGHT + (breaks * BREAK_SIZE); // pin height
-  const y_stats = PIN_STATS_Y + (breaks * BREAK_SIZE); // y position of stats
+  const yStats = PIN_STATS_Y + (breaks * BREAK_SIZE); // y position of stats
 
   return { // pin
-    "theme": getTheme(theme), // get theme
-    "gist": {
-      "user": user,
-      "filename": filename, // gist filename
-      "description": description,
-      "broken_description": broken_description,
-      "language": language, // gist language
-      "lang_color": color, // gist language color
-      "stars": stars,
-      "forks": forks
+    theme: getTheme(theme), // get theme
+    gist: {
+      user: user,
+      filename: filename, // gist filename
+      description: description,
+      brokenDescription: brokenDescription,
+      language: language, // gist language
+      langColor: color, // gist language color
+      stars: stars,
+      forks: forks
     },
-    "value": {
-      "height": height,
-      "width": PIN_WIDTH,
-      "y_stats": y_stats,
-      "owner": owner ? JSON.parse(owner) : false
+    value: {
+      height: height,
+      width: PIN_WIDTH,
+      yStats: yStats,
+      owner: owner ? JSON.parse(owner) : false
     }
   };
 };

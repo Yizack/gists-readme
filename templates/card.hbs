@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="{{ value.width }}" height="{{ value.height }}" viewBox="0 0 {{ value.width }} {{ value.height }}" fill="none" role="img">
   <title>{{ value.title }}</title>
-  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="#{{ theme.bg_color }}" stroke="#{{ theme.border_color }}" stroke-opacity="1"/>
+  <rect xmlns="http://www.w3.org/2000/svg" x="0.5" y="0.5" rx="4.5" height="99%" width="{{subtract value.width 1}}" fill="#{{ theme.bgColor }}" stroke="#{{ theme.borderColor }}" stroke-opacity="1"/>
   <g transform="translate(25, 40)">
-    <text x="0" y="0" fill="#{{ theme.primary_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18px" font-weight="600">{{ value.title }}</text>
+    <text x="0" y="0" fill="#{{ theme.primaryColor }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18px" font-weight="600">{{ value.title }}</text>
   </g>
   <g transform="translate(0, 35)">
     <svg x="25">
       <g transform="translate(0, 25)">
         {{#each gists}}
         <g transform="translate({{ this.x }}, {{ this.y }})">
-          <circle cx="5" cy="6" r="5" fill="#{{ this.lang_color }}"/>
-          <text x="15" y="10" fill="#{{ ../theme.text_color }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="11px" font-weight="400">{{ this.filename }}</text>
+          <circle cx="5" cy="6" r="5" fill="#{{ this.langColor }}"/>
+          <text x="15" y="10" fill="#{{ ../theme.textColor }}" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="11px" font-weight="400">{{ this.filename }}</text>
         </g>
         {{/each}}
       </g>
