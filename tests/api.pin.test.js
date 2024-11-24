@@ -1,9 +1,17 @@
-import { describe, it } from "vitest";
-import app from "./../api/pin.js";
-import request from "supertest";
+import { describe, it, expect, vi } from "vitest";
+import handler from "./../api/pin.js";
 
-describe("renderCard", () => {
-  it("should render card", async () => {
-    await request(app).get("/api/pin").expect("Content-Type", /svg/);
+describe("render pin", () => {
+  it("should render pin", async () => {
+    const res = {
+      setHeader: vi.fn(),
+      status: vi.fn().mockReturnThis(),
+      send: vi.fn()
+    };
+    await handler({ query: {} }, res);
+    expect(res.setHeader).toHaveBeenCalledWith("Cache-Control", "max-age=0, s-maxage=14400");
+    expect(res.setHeader).toHaveBeenCalledWith("Content-Type", "image/svg+xml");
+    expect(res.status).toHaveBeenCalledWith(200);
+    expect(res.send).toHaveBeenCalled();
   });
 });
