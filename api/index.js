@@ -4,7 +4,7 @@
  * @requires Card
  * @requires gistsList
  */
-import app from "./../src/appManager.js";
+import { hbsRender } from "./../src/appManager.js";
 import { getCard } from "./../src/card.js";
 import { getGists } from "./../src/gistsList.js";
 
@@ -22,11 +22,10 @@ import { getGists } from "./../src/gistsList.js";
  * @param {string} req.query.title Title of the card
  * @param {Object} res Response object
  */
-app.get("/api", async (req, res) => {
+export default async (req, res) => {
   const card = getCard(req.query, await getGists(req.query.user)); // get card
   res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
-  res.render("card", card); // render card template
-});
-
-export default app;
+  const svg = hbsRender("card", card); // render card template
+  return res.status(200).send(svg);
+};

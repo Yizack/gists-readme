@@ -4,7 +4,7 @@
  * @requires Pin
  * @requires gist
  */
-import app from "./../src/appManager.js";
+import { hbsRender } from "./../src/appManager.js";
 import { getPin } from "./../src/pin.js";
 import { getGist } from "./../src/gist.js";
 
@@ -22,11 +22,10 @@ import { getGist } from "./../src/gist.js";
  * @param {boolean} req.query.owner Show gist owner
  * @param {Object} res Response object
  */
-app.get("/api/pin", async (req, res) => {
+export default async (req, res) => {
   const pin = await getPin(req.query, await getGist(req.query.id)); // get card
   res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
   res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
-  res.render("pin", pin); // render pin template
-});
-
-export default app;
+  const svg = hbsRender("pin", pin); // render pin template
+  return res.status(200).send(svg);
+};
