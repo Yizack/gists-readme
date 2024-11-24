@@ -19,7 +19,7 @@
     "url": "https://github.com/Yizack/gists-readme"
   },
   "scripts": {
-    "vercel:dev": "(rm -rf docs || rd /s /q docs) && vercel dev",
+    "vercel:dev": "rd /s /q docs & vercel dev",
     "test": "vitest run --reporter=verbose --coverage",
     "docs": "jsdoc -c jsdoc.conf.json -r",
     "lint": "eslint --fix"
