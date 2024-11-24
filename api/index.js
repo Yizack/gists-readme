@@ -1,10 +1,10 @@
 /**
  * @module api
- * @requires appManager
+ * @requires hbsHandler
  * @requires Card
  * @requires gistsList
  */
-import { hbsRender } from "./../src/appManager.js";
+import { defineHbsHandler } from "../src/hbsHandler.js";
 import { getCard } from "./../src/card.js";
 import { getGists } from "./../src/gistsList.js";
 
@@ -14,18 +14,17 @@ import { getGists } from "./../src/gistsList.js";
  * @name /api
  * @function
  * @async
- * @param {Object} req Request object
- * @param {Object} req.query Query object
- * @param {string} req.query.user Github username
- * @param {string} req.query.theme Theme name
- * @param {number} req.query.n Number of gists to display
- * @param {string} req.query.title Title of the card
- * @param {Object} res Response object
+ * @param {Object} event.req Request object
+ * @param {Object} event.req.query Query object
+ * @param {string} event.req.query.user Github username
+ * @param {string} event.req.query.theme Theme name
+ * @param {number} event.req.query.n Number of gists to display
+ * @param {string} event.req.query.title Title of the card
+ * @param {Object} event.res Response object
  */
-export default async (req, res) => {
-  const card = getCard(req.query, await getGists(req.query.user)); // get card
-  res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
-  res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
-  const svg = hbsRender("card", card); // render card template
-  return res.status(200).send(svg);
-};
+export default defineHbsHandler (async (event) => {
+  const query = event.req.query;
+  const gists = await getGists(query.user);
+  const data = getCard(query, gists); // get card
+  return data;
+}, { template: "card" });

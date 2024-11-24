@@ -1,10 +1,10 @@
 /**
  * @memberof api
- * @requires appManager
+ * @requires hbsHandler
  * @requires Pin
  * @requires gist
  */
-import { hbsRender } from "./../src/appManager.js";
+import { defineHbsHandler } from "../src/hbsHandler.js";
 import { getPin } from "./../src/pin.js";
 import { getGist } from "./../src/gist.js";
 
@@ -14,18 +14,17 @@ import { getGist } from "./../src/gist.js";
  * @name /api/pin
  * @function
  * @async
- * @param {Object} req Request object
- * @param {Object} req.query Query object
- * @param {string} req.query.user Github username
- * @param {string} req.query.id Gist id
- * @param {string} req.query.theme Theme name
- * @param {boolean} req.query.owner Show gist owner
- * @param {Object} res Response object
+ * @param {Object} event.req Request object
+ * @param {Object} event.req.query Query object
+ * @param {string} event.req.query.user Github username
+ * @param {string} event.req.query.id Gist id
+ * @param {string} event.req.query.theme Theme name
+ * @param {boolean} event.req.query.owner Show gist owner
+ * @param {Object} event.res Response object
  */
-export default async (req, res) => {
-  const pin = await getPin(req.query, await getGist(req.query.id)); // get card
-  res.setHeader("Cache-Control", "max-age=0, s-maxage=14400");
-  res.setHeader("Content-Type", "image/svg+xml"); // set content type to svg
-  const svg = hbsRender("pin", pin); // render pin template
-  return res.status(200).send(svg);
-};
+export default defineHbsHandler (async (event) => {
+  const query = event.req.query;
+  const gist = await getGist(query.id);
+  const data = getPin(query, gist); // get card
+  return data;
+}, { template: "pin" });
