@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { getGists } from "./../src/gistsList.js";
+import { getGists } from "../src/gistsList.js";
 import { $fetch } from "ofetch";
 
 const fakeGists = [
@@ -29,17 +29,13 @@ const fakeGists = [
   }
 ];
 
-vi.mock("ofetch", async (importOriginal) => {
-  const mod = await importOriginal();
-  return {
-    ...mod,
-    $fetch: vi.fn()
-  };
-});
+vi.mock("ofetch", () => ({
+  $fetch: vi.fn()
+}));
 
 describe("getGists", () => {
   it("yizack - should return gists", async () => {
-    vi.mocked($fetch).mockResolvedValue(fakeGists);
+    vi.mocked($fetch).mockResolvedValueOnce(fakeGists);
     const gists = await getGists("yizack");
     expect(gists).toEqual(fakeGists);
     expect(gists[0].files["reduce_dataset.js"].language).toEqual("JavaScript");
@@ -48,13 +44,13 @@ describe("getGists", () => {
   });
 
   it("undefined - should return empty data array", async () => {
-    vi.mocked($fetch).mockResolvedValue([]);
+    vi.mocked($fetch).mockResolvedValueOnce([]);
     const gists = await getGists();
     expect(gists).toEqual([]);
   });
 
   it("user doesn't exist - should return empty array", async () => {
-    vi.mocked($fetch).mockResolvedValue([]);
+    vi.mocked($fetch).mockResolvedValueOnce([]);
     const gists = await getGists("_");
     expect(gists).toEqual([]);
   });
