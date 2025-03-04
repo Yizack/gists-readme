@@ -11,21 +11,18 @@ jobs:
   build:
     name: Perform tests
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
 
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - run: corepack enable
+      - run: npm i -g --force corepack && corepack enable
 
       - name: Setup Node 🐢
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
+          node-version: lts/*
+          cache: pnpm
 
       - name: Install & Test 🧪
         run: |
