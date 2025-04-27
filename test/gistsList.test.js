@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { getGists } from "../src/gistsList.js";
 import { $fetch } from "ofetch";
 

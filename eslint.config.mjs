@@ -1,14 +1,9 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 import { includeIgnoreFile } from "@eslint/compat";
 import stylistic from "@stylistic/eslint-plugin";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const gitignorePath = path.resolve(__dirname, ".gitignore");
-
 export default [
-  includeIgnoreFile(gitignorePath),
+  includeIgnoreFile(resolve(".gitignore")),
   {
     files: ["**/*.js", "**/*.mjs"],
     plugins: {
@@ -16,7 +11,8 @@ export default [
     },
     rules: {
       "camelcase": ["error"],
-      "no-console": ["error", { allow: ["info", "warn"] }],
+      "no-console": ["error", { allow: ["info", "warn", "error"] }],
+      "sort-imports": ["error", { ignoreDeclarationSort: true }],
       "@stylistic/indent": ["error", 2, { SwitchCase: 1 }],
       "@stylistic/linebreak-style": ["error", process.platform === "win32" ? "windows" : "unix"],
       "@stylistic/quotes": ["error", "double"],
@@ -43,8 +39,9 @@ export default [
       "@stylistic/one-component-per-file": "off",
       "@stylistic/require-default-prop": "off",
       "@stylistic/space-in-parens": ["error", "never"],
-      "@stylistic/template-curly-spacing": "error",
-      "@stylistic/quote-props": ["error", "consistent-as-needed"]
+      "@stylistic/no-multiple-empty-lines": ["error", { max: 1 }],
+      "@stylistic/quote-props": ["error", "consistent-as-needed"],
+      "@stylistic/arrow-parens": ["error", "as-needed", { requireForBlockBody: true }]
     }
   }
 ];
