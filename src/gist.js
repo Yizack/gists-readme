@@ -1,11 +1,8 @@
 /**
  * @module gist
  * @requires ofetch
- * @requires dotenv
 */
 import { $fetch } from "ofetch";
-import * as dotenv from "dotenv";
-dotenv.config(); // load environment variables
 
 /**
  * This function returns a Gist object from the GitHub API for a given gist id
